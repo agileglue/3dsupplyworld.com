@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Paypal
- * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -57,35 +57,12 @@ class Mage_Paypal_Model_Observer
     /**
      * Clean unfinished transaction
      *
+     * @deprecated since 1.6.2.0
      * @return Mage_Paypal_Model_Observer
      */
     public function cleanTransactions()
     {
-        /** @var $date Mage_Core_Model_Date */
-        $date = Mage::getModel('core/date');
-        $createdBefore = strtotime('-1 hour', $date->timestamp());
-
-        /** @var $collection Mage_Paypal_Model_Resource_Payment_Transaction_Collection */
-        $collection = Mage::getModel('paypal/payment_transaction')->getCollection();
-        $collection->addCreatedBeforeFilter($date->gmtDate(null, $createdBefore));
-
-        /** @var $method Mage_Paypal_Model_Payflowlink */
-        $method = Mage::helper('payment')->getMethodInstance(Mage_Paypal_Model_Config::METHOD_PAYFLOWLINK);
-
-        /** @var $item Mage_Paypal_Model_Payment_Transaction */
-        foreach ($collection as $item) {
-            try {
-                $method->void(new Varien_Object(array(
-                    'transaction_id' => $item->getTxnId(),
-                    'store' => $item->getAdditionalInformation('store_id')
-                )));
-                $item->delete();
-            } catch (Mage_Paypal_Exception $e) {
-                $item->delete();
-            } catch (Exception $e) {
-                Mage::logException($e);
-            }
-        }
+        return $this;
     }
 
     /**
@@ -140,5 +117,43 @@ class Mage_Paypal_Model_Observer
         }
 
         return $this;
+    }
+
+    /**
+     * Load country dependent PayPal solutions system configuration
+     *
+     * @param Varien_Event_Observer $observer
+     * @return void
+     */
+    public function loadCountryDependentSolutionsConfig(Varien_Event_Observer $observer)
+    {
+        $requestParam = Mage_Paypal_Block_Adminhtml_System_Config_Field_Country::REQUEST_PARAM_COUNTRY;
+        $countryCode  = Mage::app()->getRequest()->getParam($requestParam);
+        if (is_null($countryCode) || preg_match('/^[a-zA-Z]{2}$/', $countryCode) == 0) {
+            $countryCode = (string)Mage::getSingleton('adminhtml/config_data')
+                ->getConfigDataValue('paypal/general/merchant_country');
+        }
+        if (empty($countryCode)) {
+            $countryCode = Mage::helper('core')->getDefaultCountry();
+        }
+
+        $paymentGroups   = $observer->getEvent()->getConfig()->getNode('sections/payment/groups');
+        $paymentsConfigs = $paymentGroups->xpath('paypal_payments/*/backend_config/' . $countryCode);
+        if ($paymentsConfigs) {
+            foreach ($paymentsConfigs as $config) {
+                $parent = $config->getParent()->getParent();
+                $parent->extend($config, true);
+            }
+        }
+
+        $payments = $paymentGroups->xpath('paypal_payments/*');
+        foreach ($payments as $payment) {
+            if ((int)$payment->include) {
+                $fields = $paymentGroups->xpath((string)$payment->group . '/fields');
+                if (isset($fields[0])) {
+                    $fields[0]->appendChild($payment, true);
+                }
+            }
+        }
     }
 }
