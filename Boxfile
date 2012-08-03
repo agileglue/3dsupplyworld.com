@@ -29,3 +29,6 @@ db1: #component type & number
 cache1: #component type & number
   name: mag-cache #component settings
   type: redis
+cache2: #component type & number
+  name: mag-session #component settings
+  type: redis
