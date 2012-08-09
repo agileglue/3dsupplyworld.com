@@ -57,18 +57,35 @@ $xml->startElement('config');
             $xml->endElement(); // default_setup
         $xml->endElement(); // resources
         $xml->startElement('session_save');
-            $xml->writeCData('redis');
+            $xml->writeCData('db');
         $xml->endElement(); // session_save
-        $xml->startElement('session_save_path');
-            $xml->writeCData('tcp://' . $_SERVER["CACHE1_HOST"] . ':' . $_SERVER["CACHE1_PORT"]);
-        $xml->endElement(); // session_save_path
+        $xml->startElement('redis_session');
+            $xml->startElement('host');
+                $xml->writeCData($_SERVER['CACHE2_HOST']);
+            $xml->endElement(); // host
+            $xml->startElement('port');
+                $xml->text($_SERVER['CACHE2_PORT']);
+            $xml->endElement(); // port
+            $xml->startElement('timeout');
+                $xml->text('2.5');
+            $xml->endElement(); // timeout
+            $xml->startElement('db');
+                $xml->text(0);
+            $xml->endElement(); // db
+            $xml->startElement('compression_threshold');
+                $xml->text(2048);
+            $xml->endElement(); // compression_threshold
+            $xml->startElement('compression_lib');
+                $xml->text('gzip');
+            $xml->endElement(); // compression_lib
+        $xml->endElement(); // redis_session
         $xml->startElement('cache');
             $xml->startElement('backend');
                 $xml->text('Cm_Cache_Backend_Redis');
             $xml->endElement(); // backend
             $xml->startElement('backend_options');
                 $xml->startElement('server');
-                    $xml->text($_SERVER['CACHE1_HOST']);
+                    $xml->writeCData($_SERVER['CACHE1_HOST']);
                 $xml->endElement(); // server
                 $xml->startElement('port');
                     $xml->text($_SERVER['CACHE1_PORT']);

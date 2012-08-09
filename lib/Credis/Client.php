@@ -31,7 +31,6 @@ class CredisException extends Exception {
  * Credis_Client, a lightweight Redis PHP standalone client and phpredis wrapper
  *
  * Server/Connection:
- * @method string        auth(string $password)
  * @method Credis_Client pipeline()
  * @method Credis_Client multi()
  * @method array         exec()
@@ -94,6 +93,25 @@ class CredisException extends Exception {
  * @method int           hIncrBy(string $key, string $field, int $value)
  * @method bool          hMSet(string $key, array $keysValues)
  * @method array         hMGet(string $key, array $fields)
+ *
+ * Lists:
+ * @method array|null    blPop(string $keyN, int $timeout)
+ * @method array|null    brPop(string $keyN, int $timeout)
+ * @method array|null    brPoplPush(string $source, string $destination, int $timeout)
+ * @method string|null   lIndex(string $key, int $index)
+ * @method int           lInsert(string $key, string $beforeAfter, string $pivot, string $value)
+ * @method int           lLen(string $key)
+ * @method string|null   lPop(string $key)
+ * @method int           lPush(string $key, mixed $value, mixed $valueN = null)
+ * @method int           lPushX(string $key, mixed $value)
+ * @method array         lRange(string $key, int $start, int $stop)
+ * @method int           lRem(string $key, int $count, mixed $value)
+ * @method bool          lSet(string $key, int $index, mixed $value)
+ * @method bool          lTrim(string $key, int $start, int $stop)
+ * @method string|null   rPop(string $key)
+ * @method string|null   rPoplPush(string $source, string $destination)
+ * @method int           rPush(string $key, mixed $value, mixed $valueN = null)
+ * @method int           rPushX(string $key, mixed $value)
  */
 class Credis_Client {
 
@@ -166,6 +184,11 @@ class Credis_Client {
     protected $isWatching = FALSE;
 
     /**
+     * @var string
+     */
+    protected $authPassword;
+
+    /**
      * @var int
      */
     protected $selectedDb = 0;
@@ -178,6 +201,8 @@ class Credis_Client {
 
     /**
      * Creates a Redisent connection to the Redis server on host {@link $host} and port {@link $port}.
+     * $host may also be a path to a unix socket or a string in the form of tcp://[hostname]:[port] or unix://[path]
+     *
      * @param string $host The hostname of the Redis server
      * @param integer $port The port number of the Redis server
      * @param float $timeout  Timeout period in seconds
@@ -212,6 +237,18 @@ class Credis_Client {
      */
     public function connect()
     {
+        if($this->connected) {
+            return;
+        }
+        if(preg_match('#^(tcp|unix)://(.*)$#', $this->host, $matches)) {
+            if($matches[1] == 'tcp') {
+                $hostParts = explode(':', $matches[2], 2);
+                $this->host = $hostParts[0];
+                $this->port = (int) (isset($hostParts[1]) ? $hostParts[1] : '6379');
+            } else {
+                $this->host = $matches[2];
+            }
+        }
         if($this->standalone) {
             if(substr($this->host,0,1) == '/') {
               $remote_socket = 'unix://'.$this->host;
@@ -259,20 +296,31 @@ class Credis_Client {
     }
 
     /**
+     * @param string $password
+     * @return bool
+     */
+    public function auth($password)
+    {
+        $this->authPassword = $password;
+        $response = $this->__call('auth', array($this->authPassword));
+        return $response;
+    }
+
+    /**
      * @param int $index
      * @return bool
      */
     public function select($index)
     {
-        $response = $this->__call('select', array($index));
-        $this->selectedDb = $index;
+        $this->selectedDb = (int) $index;
+        $response = $this->__call('select', array($this->selectedDb));
         return $response;
     }
 
     public function __call($name, $args)
     {
         // Lazy connection
-        $this->connected or $this->connect();
+        $this->connect();
 
         $name = strtolower($name);
 
@@ -495,7 +543,11 @@ class Credis_Client {
                 $this->isMulti = $this->isWatching = FALSE;
                 throw new CredisException('Lost connection to Redis server during watch or transaction.');
             }
+            $this->connected = FALSE;
             $this->connect();
+            if($this->authPassword) {
+                $this->auth($this->authPassword);
+            }
             if($this->selectedDb != 0) {
                 $this->select($this->selectedDb);
             }

@@ -1,5 +1,5 @@
-web1: 
-  name: mag-app 
+web1:
+  name: mag-app
   shared_writable_dirs:
     - media
     - var
@@ -21,9 +21,14 @@ web1:
     # Run script that will generate local.xml config file and place it in app/etc/
     - "php /var/www/pagoda/local_xml_generator.php"
   php_max_execution_time: 100
+  cron:
+    - "*/15 * * * *": "php cron.php" #shortest available cron schedule is every 15 Minutes.
 db1: #component type & number
   name: mag-db #component settings
   type: mysql
 cache1: #component type & number
   name: mag-cache #component settings
+  type: redis
+cache2: #component type & number
+  name: mag-session #component settings
   type: redis
