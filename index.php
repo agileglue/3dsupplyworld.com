@@ -61,7 +61,7 @@ if (!file_exists($mageFilename)) {
     exit;
 }
 
-$ip = $_SERVER['REMOTE_ADDR'];
+$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
 $allowed = array('98.208.91.57','112.134.123.64'); 
 // these are the IP's that are allowed to view the site.
