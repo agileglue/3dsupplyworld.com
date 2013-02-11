@@ -63,7 +63,7 @@ if (!file_exists($mageFilename)) {
 
 $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
-$allowed = array('98.208.91.57','112.134.123.64'); 
+$allowed = array('98.208.91.57'); 
 // these are the IP's that are allowed to view the site.
 
 if (file_exists($maintenanceFile) && !in_array($ip, $allowed)) {
