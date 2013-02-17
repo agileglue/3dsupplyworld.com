@@ -59,6 +59,11 @@ $xml->startElement('config');
         $xml->startElement('session_save');
             $xml->writeCData('db');
         $xml->endElement(); // session_save
+        $xml->startElement('remote_addr_headers');
+            $xml->startElement('header1');
+                $xml->writeCData('HTTP_X_FORWARDED_FOR');
+            $xml->endElement(); // header1
+		$xml->endElement(); // remote_addr_headers
         $xml->startElement('redis_session');
             $xml->startElement('host');
                 $xml->writeCData($_SERVER['CACHE2_HOST']);
