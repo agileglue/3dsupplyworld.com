@@ -39,7 +39,7 @@ class BalkeTechnologies_StoreMaintenance_Controller_Router_Standard extends Mage
                 $allowedIPs = explode(',', $allowedIPsString);
             }
 
-            $currentIP = $_SERVER['REMOTE_ADDR'];
+            $currentIP = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
             $allowFrontendForAdmins = $helper->getConfig('allowFrontendForAdmins', $storeCode);
 
