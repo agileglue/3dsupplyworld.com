@@ -50,7 +50,7 @@ if (file_exists($compilerConfig)) {
 }
 
 $mageFilename = MAGENTO_ROOT . '/app/Mage.php';
-$maintenanceFile = 'maintenance.flag';
+$maintenanceFile = 'maintenance-old.flag';
 
 if (!file_exists($mageFilename)) {
     if (is_dir('downloader')) {
@@ -60,8 +60,6 @@ if (!file_exists($mageFilename)) {
     }
     exit;
 }
-
-$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
 if (file_exists($maintenanceFile)) {
     include_once dirname(__FILE__) . '/errors/503.php';
