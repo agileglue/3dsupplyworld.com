@@ -63,10 +63,7 @@ if (!file_exists($mageFilename)) {
 
 $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
-$allowed = array('98.208.91.57','24.10.82.196'); 
-// these are the IP's that are allowed to view the site.
-
-if (file_exists($maintenanceFile) && !in_array($ip, $allowed)) {
+if (file_exists($maintenanceFile)) {
     include_once dirname(__FILE__) . '/errors/503.php';
     exit;
 }
@@ -80,6 +77,8 @@ if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
 }
 
 #ini_set('display_errors', 1);
+ini_set('display_errors', 1);
+Mage::setIsDeveloperMode(true);
 
 umask(0);
 
