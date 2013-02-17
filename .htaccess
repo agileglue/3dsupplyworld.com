@@ -161,6 +161,10 @@ ExpiresDefault "access 2 days"
 
     RewriteRule .* index.php [L]
 
+############################################
+## rewrite REMOTE_ADDR to HTTP_X_FORWARDED_FOR for maintenance module to work for Pagodabox deployment
+	RewriteRule .* - [E=REMOTE_ADDR:%{HTTP_X_FORWARDED_FOR}]
+
 </IfModule>
 
 
