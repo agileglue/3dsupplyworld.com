@@ -139,6 +139,11 @@ ExpiresDefault "access 2 days"
     #RewriteBase /magento/
 
 ############################################
+## rewrite REMOTE_ADDR to HTTP_X_FORWARDED_FOR for maintenance module to work for Pagodabox deployment
+	RewriteRule .* - [E=REMOTE_ADDR:%{HTTP_X_FORWARDED_FOR}]
+
+
+############################################
 ## workaround for HTTP authorization
 ## in CGI environment
 
@@ -160,10 +165,6 @@ ExpiresDefault "access 2 days"
 ## rewrite everything else to index.php
 
     RewriteRule .* index.php [L]
-
-############################################
-## rewrite REMOTE_ADDR to HTTP_X_FORWARDED_FOR for maintenance module to work for Pagodabox deployment
-	RewriteRule .* - [E=REMOTE_ADDR:%{HTTP_X_FORWARDED_FOR}]
 
 </IfModule>
 
