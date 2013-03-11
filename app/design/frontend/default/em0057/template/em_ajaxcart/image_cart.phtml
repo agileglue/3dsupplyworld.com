@@ -1,0 +1,11 @@
+<?php 
+	$msg = Mage::registry('msg');	
+	$check_addtocart = Mage::registry('check_addtocart');	
+?>
+<div id="ajax_image">
+	<?php echo $msg ?>
+</div>
+<div class="row2">
+	<a class="back" id="closeLink" href="javascript:void(0);"><span><?php echo $this->__('Continue Shopping') ?></span></a>
+	<?php if($check_addtocart == 1): ?><a class="next" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK).'checkout/cart/' ?>"><span><?php echo $this->__('View cart & checkout') ?></span></a><?php endif ?>
+</div>

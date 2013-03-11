@@ -1,0 +1,116 @@
+/**
+ * OneStepCheckout by EMThemes
+ *
+ * Based on Magento 1.7.0.0 source code
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 EMThemes. (http://www.emthemes.com)
+ * @license     Commercial License. Granted for authorized users only.
+ */
+
+.opc-1sc:after { content:'.'; display:block; clear:both; visibility:hidden; height:0; overflow:hidden; zoom:1 }
+.opc-col1{width:286px; float:left; margin-right:4px}
+.opc-col2{border-right:1px solid #e1e1e1; border-left:1px solid #e1e1e1; padding:0 20px; width:270px; float:left; min-height:600px}
+.opc-col3 { width:300px; float:left; margin-left:2% }
+.opc-col1 { margin-left:0 }
+
+/*.opc-col .section { margin-bottom:2em; border-bottom:1px solid #ccc }*/
+.opc-col .section:last-child { border-bottom:0; clear:both }
+
+/*.opc-col .step-title .number { font-size:18px; background:#0A263C; color:#fff; padding:3px 7px }
+.opc-col .step-title h2 { display:inline }*/
+.opc-col .step-title{ color:#585858; margin-bottom:6px; clear:both }
+#opc-review .step-title .number{background:url(../images/bkg-number-order.png) 0 0 no-repeat; text-indent:-9999px; text-align:left}
+.opc-col .step-title .number { float:left; background:url(../images/bkg-number.png) 0 0 no-repeat; border:1px solid #fff; padding:0 8px 0 0; font:bold 16px/30px arial, helvetica, sans-serif; color:#fff; width:30px; height:30px ; text-align:center}
+.opc-col .step-title h2 {font-family:'MyriadProBold'; color:#161515; font-size: 16px; line-height: 32px; margin-bottom: 0; font-weight:normal; text-transform:uppercase; margin-bottom:22px}
+
+.opc-col .form-list .field { width:50% }
+.opc-col .form-list .input-box { width:100% }
+.opc-col .form-list input.input-text { width:115px !important; background:url("../images/bkg_input_124.png") 0 0 no-repeat; border:none; min-height:26px; line-height:26px; padding:0 5px}
+.opc-col .form-list li.wide textarea{ width:170px!important}
+.opc-col #payment_form_ccsave input.input-text { background:url("../images/bkg_input_267.png") 0 0 no-repeat; width:269px !important}
+.opc-col #payment_form_ccsave select{width:269px !important}
+.opc-col .form-list select { width:87% !important; padding:3px }
+.opc-col .form-list li.wide .input-box { width:100% }
+.opc-col .form-list li.wide input.input-text { width:90% !important; background:url("../images/bkg_input_267.png") 0 0 no-repeat; }
+.opc-col .form-list li.wide select { width:95% }
+
+.opc-col .discount { margin-top:2em; overflow:hidden }
+
+#opc-review .buttons-set { padding:0; border:0; margin:1em 0 0 }
+
+/* hide checkbox "Use Billing Address" */
+#opc-shipping .control { display:none !important }
+
+/* hide all continue buttons except review's */
+.opc-col .buttons-set { display:none !important }
+#opc-review .buttons-set { display:block !important }
+
+#opc-login-popup { position:fixed; width:300px; margin:0 auto; z-index:9999; background:#fff; padding:10px 20px }
+#opc-login-popup-overlay, #opc-agreement-popup-overlay {
+ display:block; position:fixed; width:100%; height:100%; top:0; left:0; z-index:9998; background:#000; opacity:.7; filter: alpha(opacity=75); }
+#opc-login-popup .close-btn { background:url(../images/btn_popup-close.png) no-repeat; width:38px; height:38px; position:absolute; top:-16px; right:-16px; text-indent:-99999px }
+
+#opc-login-popup .form-list .input-box { width:100% }
+#opc-login-popup .form-list input.input-text { width:95%; }
+
+p.required{clear:both}
+#payment_form_ccsave select.year{width:124px !important; float:left}
+#payment_form_ccsave select.month{width:124px !important; float:left; margin-right:20px !important}
+.sp-methods dt{width:100%; margin:3px 0}
+#opc-review tbody tr td{padding:15px 10px 26px 0; border-right:none}
+#opc-review tbody tr.last td{border-bottom:1px solid #e0e0e0 !important; }
+#opc-review tbody tr td.last .cart-price .price{font-weight:bold; color:#161515}
+#opc-review .data-table tfoot tr td{border:none;  color:#161515; font-size:12px; font-weight:normal; padding:14px 10px 2px !important; text-align:right !important; font-weight:bold}
+#opc-review .data-table tfoot tr.last td{padding-top:0 !important}
+#opc-review .data-table tfoot tr.last td strong{font-size:12px; font-weight:normal; color:#161515; font-weight:bold}
+#opc-review .data-table tfoot tr.first td .price{font-size:12px !important; font-weight:bold; color:#161515}
+#opc-review .data-table tfoot tr td .price{font-size:12px !important; font-weight:bold; color:#EC1F1F}
+#checkout-review-table th{border:none;white-space:normal; padding:10px 15px 10px 0px; background:none; color:#161515; font-family:'MyriadProBold'; font-size:12px; text-transform:uppercase; border-bottom:1px solid #e0e0e0;  border-top:1px solid #e0e0e0; font-weight:normal}
+#checkout-review-table th.a-right{text-align:right !important; padding-right:0}
+#checkout-review-table{border:none}
+#checkout-review-table thead th.last{white-space:normal}
+.discount label{display:block; margin-bottom:5px}
+.discount .input-box {width:164px; float:left; margin-bottom:5px}
+.discount .input-box input.input-text{padding:0px 7px; width:284px; height:28px; line-height:28px; background:url("../images/bkg_input_284.png") 0 0 no-repeat; border:none}
+
+
+.discount button.button{margin-top:5px; height:auto}
+.checkout-agreements .agree input.checkbox{margin-top:-3px}
+.checkout-agreements .agree{padding:15px 0 5px !important}
+.checkout-agreements .agree a{color:#1EB5CB; cursor:pointer}
+#opc-review #checkout-review-submit button.btn-checkout{clear:both; float:left}
+#opc-review #checkout-review-submit button.btn-checkout span { height:29px; line-height:29px; background:url(../images/btn_checkout.png) 0 0 no-repeat}
+#opc-review #checkout-review-submit button.btn-checkout span span{clear:both;padding:0 40px; line-height:29px; font-size:20px; background:url(../images/btn_checkout.png) right -29px no-repeat; color:#fff; font-weight:bold; font-size:16px}
+#opc-review .buttons-set p.f-left{line-height:14px !important; margin:0 !important; float:left !important}
+.checkout-agreements li{margin:0}
+.page-title-onestep h1{font-family:'BebasNeueRegular'; font-size:20px; color:#cb0000; margin-top:3px}
+#checkout-step-login p{border-top:1px solid #e5e5e5; padding-top:10px}
+#checkout-step-login p a{color:#ec1f1f; font-size:10px; font-weight:bold; text-transform:uppercase}
+/*.checkout-agreements .agreement-content{height:12em !important;  background: none repeat scroll 0 0 #FFFFFF; margin: 0 auto; padding: 10px 20px; position: fixed;  width: 300px;  z-index: 9999;}*/
+.checkout-agreements .agree label span a{color:#657400; text-decoration:underline}
+.checkout-agreements .agree label span a:hover{text-decoration:none}
+#opc-login-popup  button.button{margin-left:10px}
+#opc-login-popup  a.f-left{margin-top:2px; clear:both}
+#co-billing-form .form-list li.control{float:none !important}
+#payment_form_ccsave .v-fix{float:left !important}
+.cvv-what-is-this{float:right; margin-right:10px;*margin-right:5px; color:#cb0000; text-decoration:underline}
+.cvv-what-is-this:hover{text-decoration:none}
+.main{position:static !important}
+#billing-address-select, #shipping-address-select{width:232px !important}
+#opc-review .buttons-set .please-wait{margin-top:10px; float:left; clear:both; width:100% !important}
+#checkout-step-billing{margin-top:0 !important; padding-top:-1px !important}
+.checkout-onepage-index .page-title{margin-top:21px; margin-bottom:10px}
+.checkout-onepage-index .sp-methods .form-list{padding-left:0}
+.checkout-onepage-index .col-main{border:1px solid #e0e0e0; padding:0 20px}
+#opc-review .buttons-set{float:left}
+.sp-methods dt label{font-weight:normal !important; font-size:11px; color:#7e7e7e}
+.sp-methods label{color:#161515}
+#checkout-step-payment{margin-top:-10px}
+.form-list li.control label{font-size:11px; color:#7e7e7e; font-weight:normal}
+.page-title p{font-weight:bold; font-size:12px; color:#7e7e7e; padding-top:1px}
+#opc-shipping_method{padding-bottom:18px}
+#opc-shipping{padding-top:18px}
+#opc-login-popup .buttons-set{margin:0; padding-bottom:10px}
+.buttons-set p.required{margin:0; float:none; text-align:left}

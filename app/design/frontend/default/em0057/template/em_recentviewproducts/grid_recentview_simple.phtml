@@ -1,0 +1,44 @@
+<?php 
+$_items = $this->getReviewsCollection_By_Collection_Filter_By_Categories_Show();
+$_columnCount = $this->getColumnCount(); 
+?>
+<?php $limit_length = 160;?>
+<div class="box-collateral box-reviews" id="customer-reviews">
+    <?php if (count($_items)):?>
+        <h2><?php echo $this->__('Customer Reviews') ?></h2>
+      
+       
+        <?php $i=0; foreach ($_items as $_review):?>
+        <?php
+        $_product = Mage::getModel('catalog/product')->load($_review['entity_pk_value']); 
+        ?>
+		<?php if ($i++%$_columnCount==0): ?>
+        <ul class="products-grid">
+        <?php endif ?>
+         <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+          <span class="product-name"><?php echo $this->__('Product Name: ');?></span><a href="<?php echo $_product->getProductUrl() ?>" ><?php echo $_product->getName()?></a><br/>
+             <span class="review-title"><?php echo $this->__('Review Title: ');?></span> <a href="<?php echo Mage::getUrl('review/product/list', array('id'=> $_product->getId()));?>"> <span class="review-title"><?php echo $this->htmlEscape($_review->getTitle()) ?></span> </a> <br/>
+             <?php echo $this->__('Review by <span>%s</span>', $this->htmlEscape($_review->getNickname())) ?><br/>
+         
+                <!-- Review Detail -->
+                
+                <span><?php echo $this->__('Review Detail: ');?></span>
+              
+                <?php if (strlen($_review->getDetail()) >  $limit_length) : ?>
+                 <?php echo trim($this->helper('recentreviewproducts/data')->cutText2($_review->getDetail(),$limit_length)) ?> <br/>
+                <?php else: ?>
+                 <?php echo trim($_review->getDetail()) ?> <br/>
+                  <?php endif;?>
+                <!-- End Review Detail -->
+		
+		<!--Review Post On -->
+                <small class="date"><?php echo $this->__('Posted on : %s', $this->formatDate($_review->getCreatedAt()), 'long') ?></small><br/><br/>
+		<!--End Review Post On -->
+         </li>
+        <?php if ($i%$_columnCount==0 || $i==count($_items)): ?>
+        </ul>
+        <?php endif ?>
+        <?php endforeach; ?>
+      
+    <?php endif;?>
+</div>

@@ -1,0 +1,49 @@
+<?php
+	$model	=	Mage::getModel('catalog/category');
+	$rootCategoryId = Mage::app()->getStore()->getRootCategoryId();
+	$category = $model->load($rootCategoryId);	
+	$curId = $this->getRequest()->getParam('cat');
+	
+	$_helper    = $this->helper('catalog/output');
+	$cates	=	Mage::helper('em0057settings')->getCategoriesCustom($category,$curId);
+
+	$conf = new EM_Em0057settings_Em0057settings();	
+	$w 	= $conf->get_featured_cate_width();
+	$h 	= $conf->get_featured_cate_height();
+?>
+<div class="home_featured_category">
+	<div class="featured_category_top">
+		<h2><?php echo $this->__("Featured Categories") ?></h2>
+		<h3><?php echo $this->__("Lorem ipsum dolor sit amet consectetur adipising eget leo tellus luctus aptent") ?></h3>
+	</div>
+	<div id="slideshow_featured_category" class="featured_category_content">
+		<div class="slideshow-box">
+			<ul class="category-grid jcarousel-skin-tango">
+				<?php foreach($cates as $_cate): ?>
+					<?php $_cate	=	Mage::getModel('catalog/category')->load($_cate->getId()); ?>
+					<?php if($_cate->getIncludeInMenu() == 1): ?>
+						<li class="item">
+							<?php if(Mage::getModel('catalog/category')->load($_cate->getId())->getThumbnail() != "") : ?>
+								<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'catalog/category/'.Mage::getModel('catalog/category')->load($_cate->getId())->getThumbnail(); ?>" alt="<?php echo $_helper->categoryAttribute($_cate, $_cate->getName(), 'name') ?>" width="<?php echo $w ?>" height="<?php echo $h ?>" />
+							<?php endif ?>
+							<div class="cate_info">
+								<h2><?php echo $_helper->categoryAttribute($_cate, $_cate->getName(), 'name') ?></h2>							
+								<div class="desc">
+									<?php echo $_helper->categoryAttribute($_cate, $_cate->getDescription(), 'description') ?>
+								</div>
+								<div class="sub_cate">
+									<?php foreach($_cate->getChildrenCategories() as $sub) :?>
+									<div class="sub_item">
+										<a href="<?php echo $sub->getUrl() ?>" title="<?php echo $_helper->categoryAttribute($sub, $sub->getName(), 'name') ?>"><?php echo $_helper->categoryAttribute($sub, $sub->getName(), 'name') ?></a>
+									</div>
+									<?php endforeach ?>
+									<a href="<?php echo $_cate->getUrl() ?>" title="<?php echo $_helper->categoryAttribute($_cate, $_cate->getName(), 'name') ?>"><span><?php echo $this->__("Shop %s",$_helper->categoryAttribute($_cate, $_cate->getName(), 'name')) ?></span></a>
+								</div>
+							</div>
+						</li>
+					<?php endif ?>
+				<?php endforeach ?>					
+			</ul>			
+		</div>
+	</div>
+</div>

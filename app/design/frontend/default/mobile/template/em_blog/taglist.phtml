@@ -1,0 +1,11 @@
+<?php $tagCloudList = $this->getTagCloud();?>
+<div class="page-title">
+    <h1><?php echo $this->__('All Tags')?></h1>
+</div>
+<ul class="tags-list">
+     <?php if( count($tagCloudList) > 0 ): ?>
+         <?php foreach ($tagCloudList as $_tag): ?>
+             <li class="item"><a href="<?php echo Mage::getUrl('blog/tag').$_tag['url'].'.html'; ?>" style="font-size:<?php echo $_tag['size'].'px'; ?>;"><?php echo $this->htmlEscape($_tag['name']); ?></a></li>
+         <?php endforeach; ?>
+     <?php endif;?>
+</ul>

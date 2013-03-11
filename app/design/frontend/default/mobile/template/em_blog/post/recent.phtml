@@ -1,0 +1,19 @@
+<?php if(Mage::getStoreConfig('blog/menu/show_recent_post')):?>
+<div class="block em_block-recent-post">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Recent Posts'); ?></span></strong>
+    </div>
+    <div class="block-content">
+        <ol>
+            <?php foreach ($this->getRecentPost() as $p): ?>
+                <li class="item">
+                    <a class="post-title" href="<?php echo Mage::getUrl('blog').$p->getPostIdentifier().'.html';?>" ><?php echo $p->getTitle();?></a>
+                    <?php $date = new DateTime($p->getPostOn());?>
+                    <small class="time-stamp"><?php echo $date->format('l, M j Y, h:iA'); ?></small>
+                    <span class="post-on"><?php echo $this->__('Posted on').' '?><span><?php echo $p->getFirstname().' '.$p->getLastname()?></span></span>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+</div>
+<?php endif;?>

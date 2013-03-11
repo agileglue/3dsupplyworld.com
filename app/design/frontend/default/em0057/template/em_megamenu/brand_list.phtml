@@ -1,0 +1,32 @@
+<?php $manufacturers = $this->getBrandList();?>
+
+<?php if($this->getData('none_ul_root')!='0'):?>
+    <ul id="<?php echo $this->getData('ul_id')?>">    
+<?php endif;?>
+
+<?php $i=0;foreach ($manufacturers as $manufacturer): ?>
+<?php if($i == 0):?>
+    <!-- Add or not add first class -->
+    <?php if($this->getData('none_li_first_class')!='0'):?>
+        <li class="level<?php echo $this->getData('level_class')?> nav-<?php echo $i+1;?> level-top first">
+    <?php else:?>
+        <li class="level<?php echo $this->getData('level_class')?> nav-<?php echo $i+1;?> level-top">
+    <?php endif;?>
+<?php elseif($i == count($manufacturers)-1):?>
+    <!-- Add or not add last class -->
+    <?php if($this->getData('none_li_last_class')!='0'):?>
+        <li class="level<?php echo $this->getData('level_class')?> nav-<?php echo $i+1;?> level-top last">
+    <?php else:?>
+        <li class="level<?php echo $this->getData('level_class')?> nav-<?php echo $i+1;?> level-top">
+    <?php endif;?>
+<?php else:?>    
+    <li class="level<?php echo $this->getData('level_class')?> nav-<?php echo $i+1;?>">
+<?php endif;?>
+    <a href="<?php echo $this->getBaseUrl()?>brandproduct?computer_manufacturer=<?php echo $manufacturer['value'] ?>"><?php echo $manufacturer['label'] ?></a>
+</li>
+<?php $i++;?>
+<?php endforeach; ?>
+
+<?php if($this->getData('none_ul_root')!='0'):?>
+        </ul>    
+<?php endif;?>

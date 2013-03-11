@@ -1,0 +1,47 @@
+<?php
+	$helper = Mage::helper('cms');
+	$helperBlog = Mage::helper('blog');
+    $processor = $helper->getBlockTemplateProcessor();
+	$_count_intro = 80;
+	$_count_title = 31;
+	$thumnailWidth_footer = 200;
+	$thumnailHeight_footer = 200;
+?>
+<?php if(Mage::getStoreConfig('blog/menu/show_recent_post')):?>
+<div class="block em_block-recent-post">
+    <div class="block-title">
+	<a href="<?php echo Mage::getUrl('blog') ?>"><strong><span><?php echo $this->__('From Our Blog'); ?></span></strong></a>
+    </div>
+    <div class="block-content">
+	<?php $count = count($this->getRecentPost()); ?>
+		<div id='slider_blog' class='slider_blog swipe'> 
+        <ol>
+            <?php $i=0;foreach ($this->getRecentPost() as $p): ?>
+                <li class="item" <?php if($i == 0) echo 'style="display:block"';else echo 'style="display:none"'; ?>>
+					<?php if($p->getImage()):?>
+						<a href="<?php echo Mage::getUrl('blog').$p->getPostIdentifier().'.html';?>">
+							<img src="<?php echo Mage::helper('blog')->resizeImage($p->getImage(),$thumnailWidth_footer,$thumnailHeight_footer,"em_blog/posts",'thumbnail');?>" alt="<?php echo $p->getTitle(); ?>"/>
+						</a>							
+					<?php endif;?>
+                    <a class="post-title" href="<?php echo Mage::getUrl('blog').$p->getPostIdentifier().'.html';?>" ><?php echo $p->getTitle();?></a>
+                    <?php echo $processor->filter($p->getPostIntro());?>
+					<?php $date = new DateTime($p->getPostOn());?>
+                    <small class="time-stamp"><?php echo $date->format('l, M j Y, h:iA'); ?></small>
+                    <span class="post-on"><?php echo $this->__('Posted on').' '?><span><?php echo $p->getFirstname().' '.$p->getLastname()?></span></span>
+			
+                </li>
+            <?php $i++;endforeach; ?>
+        </ol>
+	</div>
+	<div class="navigation">
+		<?php for($j=0;$j<$count;$j++): ?>
+			<a href='#' onclick='slider_blog.number(<?php echo $j ?>);return false;'><?php echo $j+1; ?></a> 
+		<?php endfor ?>				
+	</div>			
+	<script>
+		var slider_blog = new Swipe(document.getElementById('slider_blog'));
+		//setInterval(function(){slider_blog.next();},5000);
+	</script>
+    </div>
+</div>
+<?php endif;?>

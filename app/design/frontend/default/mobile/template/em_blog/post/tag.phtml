@@ -1,0 +1,11 @@
+<?php $tagList = $this->getTagByPost();?>
+<div class="tags">
+   <?php if( $tagList->count() > 0 ): ?>
+        <span><?php echo $this->__('Tags').': '?></span>
+          <ul>
+              <?php foreach ($tagList as $tag): ?>
+                <li class="item"><a href="<?php echo Mage::getUrl('blog/tag').$tag->getTagIdentifier().'.html'; ?>" style="font-size:<?php echo $_tag['size'].'px'; ?>;"><?php echo $this->htmlEscape($tag->getName()); ?></a></li>
+              <?php endforeach; ?>
+          </ul>
+     <?php endif;?>
+</div>

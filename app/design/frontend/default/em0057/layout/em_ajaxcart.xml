@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<reference name="head">
+			<!--block type="page/html" name="top.Js" as="topJs" template="em_quickshop/page/html/jshead.phtml"/-->
+			<action method="addCss"><stylesheet>css/em_ajaxcart/em_ajaxcart.css</stylesheet></action>			
+			<!--action method="addItem"><type>skin_js</type><name>js/jquery.js</name></action-->
+			<action method="addItem"><type>skin_js</type><name>js/em_ajaxcart/scriptaculous.js?load=effects,dragdrop</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/em_ajaxcart/lightbox.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/em_ajaxcart/em_ajaxcart.js</name></action>
+		</reference>	
+		<reference name="before_body_end">
+            <block type="core/template" name="ajax.cart" template="em_ajaxcart/contanier.phtml"/>
+        </reference>
+    </default>
+	
+	<ajaxcart_index_add>
+		<reference name="content">
+			<block type="core/template" template="em_ajaxcart/image_cart.phtml" />
+		</reference>
+	</ajaxcart_index_add>
+	
+</layout> 

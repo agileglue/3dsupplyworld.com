@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	<!--
+    <default>		
+        <reference name="head">
+			<action method="addJs"><script>em/jquery-1.7.2.min.js</script></action>
+			<action method="addJs"><script>em/jquery-noconflict.js</script></action>
+			<action method="addJs"><script>em/jquery-ui-1.8.20.custom.min.js</script></action>
+			<action method="addJs"><script>em/layoutupdate.js</script></action>
+            <action method="addCss"><stylesheet>css/em_layoutupdate/ui-lightness/jquery-ui-1.8.20.custom.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/em_layoutupdate/core.css</stylesheet></action>
+        </reference>
+
+    </default>
+    -->
+</layout>

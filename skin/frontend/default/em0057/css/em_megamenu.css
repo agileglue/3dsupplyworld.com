@@ -1,0 +1,403 @@
+/*
+Item Name : CSS3 Mega Drop Down Menu
+Author URI : http://themeforest.net/user/Keliah
+Item URI : http://codecanyon.net/item/css3-mega-drop-down-menu/126387
+Version : 2.1
+*/
+
+/*
+
+TABLE OF CONTENTS
+
+01 MENU BAR
+02 DROP DOWN MENU
+03 CONTENT STYLINGS
+04 CONTACT FORM
+
+*/
+
+
+
+/*  _______________________________________
+
+	01 MENU BAR
+    _______________________________________  */
+
+
+
+.menu { font-size: 13px;  height: 49px;   padding: 0;clear:both;}
+.menu li { text-align:center;position:relative;border:none;display:block;}
+.menu li.submenu{ height: 50px; line-height: 50px; float: left;background: url("../images/line_menu.png") no-repeat right 16px;position:relative;}
+.menu li.submenu.first a{ }
+.menu li.submenu.last a{  }
+.menu li.submenu:hover {}
+.menu li.submenu.first:hover {}
+.menu li.position-right-li {position:static;}
+.menu li:hover { z-index:2; }
+.menu li a {outline:0;display:block;}
+.menu li a.drop{position:relative;z-index:1000;}
+.menu li a:hover {text-decoration: underline;}
+.menu li a.drop.level-top  {
+    height: 49px;
+    padding: 0 18px 0px;
+    text-transform: uppercase;color: #161515;font:14px MyriadProBold;text-transform:uppercase;text-decoration:none;line-height:49px; }
+.menu li.first  a.level-top  {}
+.menu li a.level-top:hover { color:#ec1f1f;}
+.menu li:hover a {text-shadow: none;}
+.menu li .level-top{ }
+.menu li .drop{ color: #414141;
+    font-family:MyriadProBold;
+    font-size: 12px;
+    height: 41px;
+    line-height: 41px;
+    padding: 0 15px 2px;
+    text-transform: uppercase;}
+.menu li.first .drop{padding-left:15px; }
+.menu li:hover .drop {text-decoration: none;}
+.menu li:hover .drop span {display:block; cursor:pointer; white-space:nowrap;}
+
+.menu li:hover a span{ display: block;}
+.menu li:hover .drop { text-decoration: none;}
+.menu li:hover div a {}
+.menu li:hover div a:hover { }
+.menu li:hover ul li a { }
+.menu li:hover ul li a:hover{ text-decoration: underline;}
+.menu li:hover a:hover{position: relative;  text-decoration: none;  z-index: 999;}
+.menu li ul li a:hover {}
+.menu li a div a { color:#353535;font-size:14px;font-weight:bold;}
+.menu li a div a ul li a { color:#626262;font-size:12px;font-weight:normal;}
+.menu li.submenu:hover a.drop, #nav li.level-top.parent:hover a.level-top {
+    background: url("../images/drop_menu.png") no-repeat scroll center bottom transparent;
+    padding-bottom:8px;
+}
+/* Right aligned menu item */
+.menu .right {float:right;right:0;margin-right:0px;}
+.menu li:hover .drop span, #nav li:hover a.level-top span{color:#EC1F1F}
+
+/*  _______________________________________
+
+	02 DROP DOWN MENU
+    _______________________________________  */
+
+/* Left & right aligned common styles */
+
+.menu .dropdown_1columns, 
+.menu .dropdown_2columns, 
+.menu .dropdown_3columns, 
+.menu .dropdown_4columns,
+.menu .dropdown_5columns ,
+.menu .dropdown_6columns{ margin:0px auto 0px;left:-999em;position:absolute;/*border-top:1px solid #dedcdc;*/padding:25px 0px 10px;text-align:left;z-index: 99;background:#fff;border: 1px solid #e6e6e6;}
+
+/* Drop Downs Sizes */
+.menu .inner {overflow:hidden;}
+.menu .dropdown_1columns {width: 148px;/*background:url(../images/bkg-menu-1col-top.png) center top no-repeat !important ;*/}
+.menu .dropdown_2columns {width: 318px;/*background:url(../images/bkg-menu-2col-top.png) center top no-repeat !important ;*/}
+.menu .dropdown_3columns {width: 478px;/*background:url(../images/bkg-menu-3col-top.png) center top no-repeat !important ;*/}
+.menu .dropdown_4columns {width: 638px;/*background:url(../images/bkg-menu-4col-top.png) center top no-repeat !important ;*/}
+.menu .dropdown_5columns {width: 898px;/*background:url(../images/bkg-menu-5col-top.png) center top no-repeat !important ;*/}
+.menu .dropdown_6columns {width: 962px;/*background:url(../images/bkg-menu-6col-top.png) center top no-repeat !important ;*/}
+.menu .dropdown_6columns .col_6 {padding:0;width:960px;}
+
+.menu .dropdown_1columns .inner {width: 160px;/*padding-bottom:20px;background:url(../images/bkg-menu-1col-bottom.png) center bottom no-repeat !important ;*/}
+.menu .dropdown_2columns .inner {width: 320px;/*padding-bottom:20px;background:url(../images/bkg-menu-2col-bottom.png) center bottom no-repeat !important ;*/}
+.menu .dropdown_3columns .inner {width: 480px;/*padding-bottom:20px;background:url(../images/bkg-menu-3col-bottom.png) center bottom no-repeat !important ;*/}
+.menu .dropdown_4columns .inner {width: 640px;/*padding-bottom:20px;background:url(../images/bkg-menu-4col-bottom.png) center bottom no-repeat !important ;*/}
+.menu .dropdown_5columns .inner {width: 800px;/*padding-bottom:20px;background:url(../images/bkg-menu-5col-bottom.png) center bottom no-repeat !important ;*/}
+.menu .dropdown_6columns .inner {width: 960px;/*padding-bottom:10px;background:url(../images/bkg-menu-6col-bottom.png) center bottom no-repeat !important ;*/}
+
+/* Showing Drop Down on Mouse Hover - Left aligned */
+
+.menu li:hover .dropdown_1columns, 
+.menu li:hover .dropdown_2columns, 
+.menu li:hover .dropdown_3columns,
+.menu li:hover .dropdown_4columns,
+.menu li:hover .dropdown_5columns
+ {
+	left:auto;
+	top:49px;
+}
+.menu li:hover .dropdown_6columns
+ {
+	left:0;
+	
+}
+
+/* Showing Drop Down on Mouse Hover - Right aligned */
+
+.menu li .align_right {
+	/* Rounded Corners */
+	-moz-border-radius: 5px 0px 5px 5px;
+    -webkit-border-radius: 5px 0px 5px 5px;
+    border-radius: 5px 0px 5px 5px;
+}
+.menu li:hover .align_right {
+	left:auto;
+	right:-1px;
+	top:auto;
+}
+
+/* Columns Sizes */
+
+
+.menu .col_1,
+.menu .col_2,
+.menu .col_3,
+.menu .col_4,
+.menu .col_5,
+.menu .col_6 {display:inline;float: left;position: relative;padding:0px 20px 10px 20px; }
+
+.menu .col_1.last,
+.menu .col_2.last,
+.menu .col_3.last,
+.menu .col_4.last,
+.menu .col_5.last,
+.menu .col_6.last {border-right:none;}
+.dropdown_3columns .col_1:last-child { border-right:none;padding-right:0;}
+.dropdown_1columns .col_1.first { border-right:none;padding-right:0;}
+.menu .dropdown_3columns  .col_1 {}
+.menu .dropdown_5columns  .col_6.first  p.info {padding-top:10px;}
+.menu .dropdown_6columns  .col_6.first  p.info {padding-top:10px;}
+.menu .col_1 {width:120px; }
+.menu .col_2 {width:280px;}
+.menu .col_3 {width:440px;}
+.menu .col_4 {width:600px;}
+.menu .col_5 {width:760px;}
+.menu .col_6 {width:920px;}
+.menu .col_1:last-child {border-right:none 0;}
+.menu .col_2  .col_2 { padding:0px;}
+/* IMPORTANT */
+/* Use the firstcolumn class for the items that stick to the left edge of the dropdown */
+.menu .firstcolumn {	clear: left;}
+.menu .col_1.firstcolumn p {clear: left;}
+.menu .dropdown_1columns  .col_1{width:148px;padding:0;}
+.menu .dropdown_1columns  ul li{padding:0 0 0 20px;}
+/*  _______________________________________
+	03 CONTENT STYLINGS
+    _______________________________________  */
+.menu p,
+.menu ul,
+.menu li,
+.menu h2,
+.menu h3 {font-size:14px; font-family:Arial, Helvetica, sans-serif;line-height:21px;text-align:left;}
+.menu p {font-size:11px;line-height:18px;padding-bottom:10px; padding-top:10px;}
+.menu p.old-price{margin:5px 0;}
+.menu p.special-price{margin:0;}
+.menu p.price-from {margin-bottom:0px; }
+.menu p.price-to { margin-top:0px;}
+.menu .strong {font-weight:bold;}
+.menu .italic {font-style:italic;}
+.menu h2 {font-family:Arial, Helvetica, sans-serif;font-weight:400;font-size:21px;line-height:21px;margin-top:7px;margin-bottom:14px;padding-bottom:14px;}
+.menu h3 {font-family:Arial, Helvetica, sans-serif;font-weight:600;font-size:14px;line-height:21px;margin-top:7px;margin-bottom:14px;padding-bottom:7px;}
+.menu .pusher { /* Use this pucher if you want to give more vertical spacing between your rows of content */
+	margin-top:18px;}
+
+/* Icon paragraphs */
+
+.menu .help,
+.menu .favorite,
+.menu .mail,
+.menu .print {padding-left:36px;margin-bottom:18px;}
+.menu .help {background:url("img/help.png") no-repeat 0px 2px;}
+.menu .favorite {background:url("img/favorite.png") no-repeat 0px 2px;}
+.menu .mail {background:url("img/mail.png") no-repeat 0px 2px;}
+.menu .print {background:url("img/print.png") no-repeat 0px 2px;}
+
+/* Images styles */
+
+.menu .imgshadow_dark{ /* Better style on dark background */background:#FFFFFF;padding:4px;border:1px solid #333333;margin-top:5px;-moz-box-shadow:0px 0px 5px #000000;-webkit-box-shadow:0px 0px 5px #000000;box-shadow:0px 0px 5px #000000;
+}
+.menu .imgshadow_light { /* Better style on light background */background:#FFFFFF;padding:4px;border:1px solid #777777;margin-top:5px;-moz-box-shadow:0px 0px 5px #666666;-webkit-box-shadow:0px 0px 5px #666666;box-shadow:0px 0px 5px #666666;}
+.menu .img_left { /* Image sticks to the left */width:auto;float:left;margin:2px 15px 5px 0px;}
+.menu .img_right { /* Image sticks to the right */width:auto;float:right;margin:2px 0px 5px 15px;}
+/* Box styles */
+.menu li .black_box {background-color:#333333;color: #eeeeee;padding:4px 6px 4px 6px;
+	/* CSS 3 Stylings */	
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;	
+	-webkit-box-shadow:inset 0 0 3px #000000;
+	-moz-box-shadow:inset 0 0 3px #000000;
+	box-shadow:inset 0 0 3px #000000;
+}
+
+.menu li .dark_grey_box {
+	background-color:#555555;color: #eeeeee; padding:4px 6px 4px 6px;
+	/* CSS 3 Stylings */	
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+	
+	-webkit-box-shadow:inset 0 0 3px #111111;
+	-moz-box-shadow:inset 0 0 3px #111111;
+	box-shadow:inset 0 0 3px #111111;
+}
+
+/* Standard lists styles */
+.menu li.first {  position: static;}
+.menu li ul li.first {/* padding-left:0px;*/}
+.menu li ul {list-style:none;padding:0;margin:0 0 0px 0;/*overflow:hidden;*/}
+.menu li ul li {font-size:11px;line-height:20px;position:relative; padding:0;margin:0;float:none;text-align:left; display: block;}
+.menu li ul li a { color: #7d7b78;text-decoration:none;}
+.menu li ul li:hover {}
+/* Greybox lists styles */
+.menu li .greybox li {background:#F4F4F4;border:1px solid #bbbbbb;margin:0px 0px 4px 0px;padding:4px 6px 4px 6px;width:131px;
+	/* CSS 3 Stylings */	
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
+.menu li .greybox li:hover {background:#ffffff;border:1px solid #aaaaaa;padding:4px 6px 4px 6px;margin:0px 0px 4px 0px;}
+/* Other lists styles */
+.menu li .plus li {background: url("img/plus.png") left 6px no-repeat;margin:0px 0px 4px 0px;padding:0px 0px 0px 21px;width:109px;}
+.menu li .plus li:hover {background: url("img/plus.png") left 6px no-repeat;padding:0px 0px 0px 21px;margin:0px 0px 4px 0px;}
+/* Social Icons */
+.menu li ul.social {list-style:none;margin:0;padding:0;}
+.menu li ul.social li {padding-top:5px;margin:0 12px 12px 0;float:left;position:relative;display:inline;width:32px;}
+.menu li ul.social li:hover {padding-top:5px;margin:-1px 12px 12px 0;}
+.menu li ul.social li span {display:none;}
+/* 2-Levels Drop Down */
+
+.menu .levels {list-style:none;margin:0;width:auto; padding:0;}
+.menu a.parent, .menu a.parent:hover {background: url("img/drop2.png") right center no-repeat;}
+.menu .levels li li, .menu .levels li li:hover {width:140px;padding: 0px 12px 0px 12px;margin:0px 0px 0px 2px;}
+.menu .levels ul { /* First level drop down */position:absolute;z-index:500;top:-31px;right:100%;display:none;/*background: url("../images/bkg_menu_1colum.png") no-repeat scroll 0 100% transparent !important; */ width: 148px;margin:15px 0px 0px 0px;padding:15px 0 20px 0;background:#fff;border:1px solid #E6E6E6;}
+.menu .levels li li.first {}
+.menu .levels ul ul {top:0px;right:100%;width:148px;margin:-1px 0px 0px 0px;}
+.menu .levels li:hover {cursor:pointer;z-index:100;}
+
+
+.menu .levels li:hover ul ul,
+.menu .levels li li:hover ul ul,.menu .levels li li:hover ul li:hover ul ul {display:none;}
+.menu .levels li:hover ul,
+.menu .levels li li:hover ul,.menu .levels li li:hover ul li:hover ul {display:block;}
+
+/*  _______________________________________
+	04 CONTACT FORM
+    _______________________________________  */
+.menu form {margin:0 0 12px 0;padding:0px;}
+/* Labels & fieldsets stylings */
+.menu fieldset {margin:0;border:none;}		
+.menu form p {margin:10px 0;overflow:hidden;width:270px;}
+.menu label {float:left;display:block;text-align:left;width:50px;}	
+.menu input,
+.menu textarea {}					
+/* Buttons stylings */
+.menu button {clear:both;float:left;}
+/* Messages when sending email */
+.error, .sent {font-size:12px;line-height:18px;padding:5px;margin-bottom:10px;
+	/* CSS 3 Stylings */
+-moz-border-radius: 5px; -webkit-border-radius: 5px;border-radius: 5px;}
+.error {background:#f3afa6;border:#ef9588 solid 1px;color:#992213;}
+.sent {background:#bef08f;border:#adec71 solid 1px;color:#37620d;}
+.menu .dropdown_3columns .col_1  a.level-top { margin-left: 20px;padding-top:10px;text-decoration: none;}
+.col_5 .col_1 {clear:both;float:none;}
+.menu span.title {display:block;font-size:16px;padding-left:18px;padding-top:10px; text-transform: uppercase;font-family: Century Gothic;line-height: 15px;padding-bottom:15px;display: none;}
+.menu span.title_col {
+    display: block;
+    color: #161515;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+	font-family:MyriadProBold;}
+.menu p.note {margin-top:0;color:#BFBABA; font-size: 11px; letter-spacing: -0.08px;}
+.menu p.note.first {padding-left:20px;}
+.menu .img {margin-top:0;}
+.menu .col_2 p.first {margin-top:30px;}
+.menu .wrapper_col {padding:0;width: auto;}
+.menu .col_1 .products-grid li.item { width:auto;height:auto;border:none !important;padding:0;}
+.menu .col_1 .products-grid .product-image { width:auto;height:80px;;float:none;line-height:0;padding-left:0;margin-top:0;}
+.menu .col_1 .products-grid .details { width:auto;height:auto;float:none;padding-right:0;}
+.menu .col_1 .products-grid .details p.sku{ margin-top:0;margin-bottom:0;}
+.menu .col_1 .products-grid .details h2,.menu .col_2 .products-grid .product-shop h3 {border:none;padding:0; background: none; margin-top:-5px;}
+.menu .col_1  .products-grid .details button.button,.menu .col_2  .products-grid .product-shop button.button { position:static;background:none;margin:0;padding:0;}
+.menu .col_1  .products-grid .details button.button,.menu .col_2  .products-grid .product-shop button.button  { position:static;width:auto;height:auto;float:none;}
+.menu .col_2 .products-grid .item {background:none !important;height: auto; width: 100%; padding:0;min-height:120px;margin-top: 0;}
+.menu .product {margin-top:20px; line-height:21px;}
+.menu .product .emmediawidget {margin-top:-11px;}
+.menu .products-grid .product-name a:hover,.menu .mini-products-list .product-details .product-name a:hover{	text-decoration: underline;}
+.menu .products-grid .product-name a,.menu .mini-products-list .product-details .product-name { }
+.menu .special-price ,.menu .old-price{width:190px;}
+.menu .widget-new-products .ratings .rating-links a {   display: inline;}
+.menu .ratings .rating-links a{ display:inline;font-size:8px;}
+.menu .ratings .rating-links a:hover{ display:inline;font-size:8px;}
+.menu .col_1.most_popular {width:135px;padding-right:5px;} 
+.menu .ratings .rating-links {margin:3px 0;}
+.menu li.position-right-li .position-right{ top:73px;right:0;}
+.menu li.first ul li.first {/*padding-left:0px;*/}
+.menu .col_1.no-icon  a{ width:auto; }
+.menu .col_1.no-icon {   padding:0 11px 0 10px;  overflow: hidden;width:auto;display:inline;}
+.menu .col_1.no-icon.last{padding-right:0;}
+.menu .col_1.no-icon.first { padding-left: 20px;}
+.menu .widget-new-products .products-list.product-image{float:left}
+.menu .widget-new-products .products-grid .product-image, 
+.menu .widget-new-products .products-list .product-image 
+{ width:110px; overflow: hidden; height: auto; margin-right: 10px; background: #fff;padding: 2px; border: none;}
+.menu .products-grid li.item .product-shop{ float:right; width: 162px;} 
+.menu .most_popular .products-list .product-shop { background: none repeat scroll 0 0 transparent;   margin-left: 0;   overflow: visible;    padding-left: 0;}
+.menu .most_popular .products-list .product-shop .product-name a { font-size: 11px;color: #000; text-transform: uppercase;
+}
+.menu .most_popular .products-list .product-image { width:120px; height:auto; float: none; border: none; padding-bottom: 0;}
+.menu .most_popular .products-list .product-image img { height:auto; width: auto;}
+.menu .products-list li.item.last { padding:0;}
+.menu .widget-new-products  .widget-title h2 { display: none;}
+.menu .widget-new-products  .widget-title { margin: 0; padding:0;}
+.menu .widget-new-products  .add-to-links { display: none;}
+.menu .widget-new-products  .products-grid { border: none;}
+.menu .dropdown_2columns  .page-title { display: none;}
+.menu #contactForm { padding: 10px 25px 0px; display: block;}
+.menu #contactForm .form-list input.input-text { background:url("../images/bkg-input267.png") no-repeat scroll 0 0 transparent; border: medium none;  height: 19px;  width: 259px;padding: 4px; float: none;}
+.menu #contactForm .form-list input.input-text.validation-failed { width: 257px;}
+.menu #contactForm  .form-list .field {
+    float: left;
+    width: 270px;
+}
+.menu #contactForm .form-list li.wide textarea { width: 257px;}
+.menu #contactForm .buttons-set p.required {    text-align: right; margin-top: 4px; float: right; width: auto;}
+.menu #contactForm .buttons-set  button.button {    clear: none;}
+.menu #contactForm  .form-list .field:first-child {    margin-bottom:5px;}
+.menu #contactForm  .form-list li.wide .input-box {    width: auto;}
+.menu #contactForm .fieldset .legend { padding-bottom: 0;}
+
+.menu span.product-manufacture { display: none;}
+
+.menu  .col_2  {}
+.menu  .col_2  .product-image { float: left;width: 94px;overflow: hidden;}
+.menu  .col_2  .product-name{float:left;}
+.menu  .col_2  .ratings ,.menu  .col_2  .price-box,.menu  .col_2  .actions{float:left;clear:both;}
+.menu   .product-name { margin-bottom: 0;padding: 0;margin-top:10px;width:130px; }
+.menu   .product-name a { color: #7E7E7E;  font-size: 12px; font-weight: bold;}
+.menu .ratings{padding:0;margin:5px 0 0 0;}
+.menu   .product-name a:hover { text-decoration: underline !important;}
+.menu   .price-box,.menu  .product-item .actions { line-height: 20px;}
+.menu   .price-box{margin:0;}
+.menu   .sku { display: none;}
+.menu .category-products {margin:0;padding:0;background:none;width:auto;}
+.menu .category-products .product-name a { color:#7E7E7E;font:bold 12px Arial;}
+.menu .category-products .product-image  {width:80px;min-height:80px;margin-bottom:10px;height:80px;margin-right:10px;}
+.menu .category-products .product_info{float:right;width:185px;margin-top:-10px;}
+.menu .category-products .products-grid li.item{width:auto;border:none !important;padding:0;margin:0;}
+.menu .actions { display: none;}
+.col_1 .slideshow-box .products-list li.item { width: auto;}
+.col_1 .slideshow-box .products-list li.item .product-item { width: auto;padding: 0;}
+.col_1 .slideshow a.previous { display: none;}
+.col_1 .slideshow a.next { display: none;}
+.menu .products-list .product-shop {margin-left:0; float:left;width:170px;}
+
+
+.menu li.submenu:hover a.drop, #nav li.level-top.parent:hover a.level-top {background: url("../images/drop_menu.png") no-repeat scroll center bottom transparent;}
+
+.menu li ul.levels li.parent a,
+.menu li ul.levels li.parent ul li.parent a,
+ul.levels li a.parent{/*background:url("../images/vertical_menu.png") no-repeat scroll 90% center transparent;width:130px;*/}
+
+.menu li div a.drop, 
+.menu li ul.levels li.parent ul li.parent ul li a, 
+.menu li ul.levels li.parent ul li a{background:none;}
+
+#nav ul li.parent li a,#nav ul li.parent li.parent  li a,#nav ul li.parent li.parent  li.parent li a{ background-image:none; }
+/*
+#nav ul li.parent a,#nav ul li.parent li.parent a ,#nav ul li.parent li.parent li.parent a  { background:url("../images/vertical_menu.png") no-repeat scroll 90% center transparent; }*/

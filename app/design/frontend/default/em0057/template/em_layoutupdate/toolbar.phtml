@@ -1,0 +1,23 @@
+<div class="em_layoutupdate_toolbar_wrapper">
+	<div class="em_layoutupdate_toolbar_title">
+		<?php echo $this->getData('areaName') ?>
+	</div>
+	<div class="em_layoutupdate_toolbar">
+		<button class="reset" onclick="
+			if (confirm('This will reset the current to default state. Are you sure?'))
+				EM_LayoutUpdate.LayoutEditor.removeCurrentPage('<?php echo $this->getData('areaName') ?>');
+			" title="<?php echo $this->__("Reset Current Page") ?>"><?php echo $this->__("Reset") ?></button>
+			
+		<button class="resetall" onclick="
+			if (confirm('This will reset all pages to default state. Are you sure?'))
+				EM_LayoutUpdate.LayoutEditor.removeAllPages('<?php echo $this->getData('areaName') ?>');
+			" title="<?php echo $this->__("Reset All Pages") ?>"><?php echo $this->__("Reset on all pages") ?></button>
+			
+		<button class="revert" onclick="
+			if (confirm('This will reload the current page. All changes without saved will be stored. Are your sure?'))
+				window.location.reload();
+			" title="<?php echo $this->__("Revert Changes") ?>"><?php echo $this->__("Revert") ?></button>
+		<button class="save" onclick="EM_LayoutUpdate.LayoutEditor.saveCurrentPage('<?php echo $this->getData('areaName') ?>')" title="<?php echo $this->__("Save Current Page") ?>"><?php echo $this->__("Save") ?></button>
+		<button class="saveall" onclick="EM_LayoutUpdate.LayoutEditor.saveAllPages('<?php echo $this->getData('areaName') ?>')" title="<?php echo $this->__("Save All Pages") ?>"><?php echo $this->__("Save on all pages") ?></button>
+	</div>
+</div>

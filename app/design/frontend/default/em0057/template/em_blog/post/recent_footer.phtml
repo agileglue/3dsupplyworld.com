@@ -1,0 +1,26 @@
+<?php if(Mage::getStoreConfig('blog/menu/show_recent_post')):?>
+
+<div class="block em_block-recent-post">
+    <div class="block-title">
+        <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK).'blog'; ?>" title="<?php echo $this->__("EM BLOG")?>"><strong><span><?php echo $this->__('From our blog'); ?></span></strong></a>		
+    </div>
+    <div class="block-content">
+        <ol>
+			<?php $posts = $this->getRecentPost(); ?>
+            <?php $i=0; foreach ($posts as $p): $i++;?>
+                <li class="item">
+					<?php $date = new DateTime($p->getPostOn());?>
+					<div class="blog_day"><span class="day"><?php echo $date->format('j'); ?></span><span class="month"><?php echo $date->format('M'); ?></span></div>
+					<div class="blog_info">
+						<a class="post-title" href="<?php echo Mage::getUrl('blog').$p->getPostIdentifier().'.html';?>" ><?php echo $p->getTitle();?></a>                   
+						<div class="post_desc"><?php echo $p->getPostIntro();?></div>
+						<span class="post-on"><?php echo $this->__('Posted by').' '?><span><?php echo $p->getFirstname().' '.$p->getLastname()?></span></span>
+					</div>
+                </li>
+            <?php 
+			if($i==2) break;
+			endforeach; ?>
+        </ol>
+    </div>
+</div>
+<?php endif;?>

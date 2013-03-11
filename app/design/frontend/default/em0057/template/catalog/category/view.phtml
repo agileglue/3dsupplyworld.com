@@ -1,0 +1,68 @@
+<?php
+	$_helper    = $this->helper('catalog/output');
+	$productCount = 0;
+	$totalDesCharacter = 70; // character limit: If category Description is greater then 100 then (...)will display
+	$totalCharacter = 17;  // character limit: If category name is greater then 17 then (...)will display
+	$_category  = $this->getCurrentCategory(); 
+	$helper     = Mage::helper('catalog/category');
+	$collection = Mage::getModel('catalog/category')->getCategories($_category->entity_id);
+	$rootcat = $_category->entity_id;
+	$cat = Mage::getModel('catalog/category')->load($rootcat);
+	$productCount = $cat->getProductCount(); 
+	$child = $cat->getChildren();
+	if ($_imgUrl = $_category->getImageUrl()) {
+		$_imgHtml = '<p class="category-image"><img src="'.$_imgUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" title="'.$this->htmlEscape($_category->getName()).'" width="760" height="300" align="middle" /></p>';
+	}
+	if($_imgUrl):  // display main category image
+		echo $_imgHtml.'<br/>';  
+	endif; 
+	
+?>	
+<?php /*if($_category->getDescription()): ?>
+    <div class="category-description std">
+        <?php echo $_category->getDescription(); ?>
+    </div>
+	<hr/>
+<?php endif; */
+	
+	// condition: If product is present then display goto product lising page otherwise will go to category listing page.
+	if($child){ ?>
+	<ul class="products-grid">
+				<?php foreach ($collection as $cat): ?>
+							<?php if($_category->getIsActive()): // display only active category; ?>
+							<?php
+								$cur_category = Mage::getModel('catalog/category')->load($cat->getId());
+								$_img = $cur_category->getThumbnail();
+								$description = $cur_category->getDescription();
+								
+								if (trim($_img) != '') //if Thumbnil is present then display other wise default-image display
+									$_imgUrl = Mage::getBaseUrl('media').'catalog/category/' . $_img;
+								else
+									$_imgUrl = Mage::getBaseUrl('media'). 'default_image.jpg';
+							?>
+							<li class="item_subcategory">
+								<a class="product-image" href="<?php echo $helper->getCategoryUrl($cat);?>">
+									 <img src="<?php echo $_imgUrl; ?>" title="<?php echo $cat->getName();?>" width="240" height="200" />
+								</a>
+								<h2 class="product-name"><strong><a href="<?php echo $helper->getCategoryUrl($cat);?>" title="<?php echo $cat->getName();?>"><?php echo (strlen($cat->getName()) > $totalCharacter ) ? substr($cat->getName(), 0, $totalCharacter ) . '...' : $cat->getName(); ?></a></strong></h2>
+									
+								<span class="subcat_description">
+								<?php echo (strlen($description) > $totalDesCharacter ) ? substr($description, 0, $totalDesCharacter ) . '...' : $description; ?>
+								</span>
+							</li>
+							<?php endif?>
+				<?php endforeach;?>
+			</ul>
+	<?php if ($collection->count()) : ?>
+	<script type="text/javascript">
+	decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])
+	</script>
+	<?php endif; ?>
+	
+	<?php } elseif($productCount) {
+	echo $this->getProductListHtml();
+	
+	} else{ ?>
+		<p class="note-msg">There are no products matching the selection.</p>
+	<?php }	?>
+ 

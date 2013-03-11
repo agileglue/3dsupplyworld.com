@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <default>
+	  
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="head">
+                <action method="addCss"><name>em_blog/css/styles.css</name></action>
+        </reference>
+		
+		<reference name="area9">
+			<block type="blog/post_recent" name="blog_recent_footer" template="em_blog/post/recent_footer.phtml" />
+		</reference>
+									
+    </default>
+
+    <blog_index_taglist>
+         
+         <reference name="content">
+            <block type="blog/post_tagcloud" name="blog.tagcloud" template="em_blog/taglist.phtml" />
+        </reference>
+    </blog_index_taglist>
+
+    <blog_index_index>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+      <reference name="left">
+            <action method="unsetChild"><name>cart_sidebar</name></action>
+            <action method="unsetChild"><name>catalog.compare.sidebar</name></action>
+            <action method="unsetChild"><name>right.permanent.callout</name></action>
+            <action method="unsetChild"><name>right.poll</name></action>
+			
+			<block type="blog/menu" name="blog.menu" before="-" template="em_blog/menu.phtml"/>
+            <block type="blog/post_recent" name="blog.recent" after="blog.menu" template="em_blog/post/recent.phtml" />
+			<block type="blog/comment" name="blog" after="blog.recent" template="em_blog/recentcomment.phtml" />	
+            <block type="blog/post_tagcloud" name="blog.tagcloud" after="blog" template="em_blog/post/tagcloud.phtml" />			 
+			<remove name="tags_popular" />
+        </reference>
+      <reference name="head">
+          <block type="core/template" name="rss.head" template="em_blog/rssaddress.phtml"/>
+      </reference>
+        <reference name="content">
+            <block type="blog/post" name="listpost" template="em_blog/postlist.phtml">
+                <block type="core/template" name="rssblog" template="em_blog/rss.phtml"/>
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                    <block type="blog/toolbar_pager" name="product_list_toolbar_pager"/>
+                </block>
+            </block>
+        </reference>
+    </blog_index_index>
+    
+	
+    <blog_index_list>
+        <reference name="content">
+            <block type="blog/post" name="listpost" template="em_blog/postlist.phtml"/>
+        </reference>
+    </blog_index_list>
+    <blog_index_cat>
+       <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="left">
+            <action method="unsetChild"><name>cart_sidebar</name></action>
+            <action method="unsetChild"><name>catalog.compare.sidebar</name></action>
+            <action method="unsetChild"><name>right.permanent.callout</name></action>
+            <action method="unsetChild"><name>right.poll</name></action>		
+           
+			<block type="blog/menu" name="blog.menu" before="-" template="em_blog/menu.phtml"/>
+            <block type="blog/post_recent" name="blog.recent" after="blog.menu" template="em_blog/post/recent.phtml" />
+			<block type="blog/comment" name="blog" after="blog.recent" template="em_blog/recentcomment.phtml" />	
+            <block type="blog/post_tagcloud" name="blog.tagcloud" after="blog" template="em_blog/post/tagcloud.phtml" />			 
+			<remove name="tags_popular" />
+        </reference>
+        <reference name="head">
+              <block type="core/template" name="rss.head" template="em_blog/rssaddress.phtml"/>
+          </reference>
+        <reference name="content">
+            <block type="blog/category" name="category.list" template="em_blog/category.phtml">
+                <block type="blog/post" name="list.post" template="em_blog/postlist.phtml">
+                    <block type="core/template" name="rssblog" template="em_blog/rss.phtml"/>
+                </block>
+            </block>
+        </reference>
+    </blog_index_cat>
+    <blog_index_tag><update handle="blog_index_index"/></blog_index_tag>
+   <blog_index_view>
+        
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setHeaderTitle" translate="title" module="blog"><title>Blog</title></action>
+        </reference> 
+        <reference name="left">
+            <action method="unsetChild"><name>cart_sidebar</name></action>
+            <action method="unsetChild"><name>catalog.compare.sidebar</name></action>
+            <action method="unsetChild"><name>right.permanent.callout</name></action>
+            <action method="unsetChild"><name>right.poll</name></action>
+          		
+           <block type="blog/menu" name="blog.menu" before="-" template="em_blog/menu.phtml"/>
+            <block type="blog/post_recent" name="blog.recent" after="blog.menu" template="em_blog/post/recent.phtml" />
+			<block type="blog/comment" name="blog" after="blog.recent" template="em_blog/recentcomment.phtml" />	
+            <block type="blog/post_tagcloud" name="blog.tagcloud" after="blog" template="em_blog/post/tagcloud.phtml" />			 
+			<remove name="tags_popular" />
+        </reference>
+        <reference name="content">
+            <block type="blog/post_view" name="post" template="em_blog/post/post.phtml" >
+                <block type="blog/tag" name="tag.post" template="em_blog/post/tag.phtml"/>
+                <block type="blog/post_comment" name="comment.post" template="em_blog/post/comment.phtml"/>
+                
+            </block>
+        </reference>
+
+    </blog_index_view>
+
+    <blog_rss_index>
+        <block type="blog/rss" output="toHtml" name="rss.blog.new"/>
+    </blog_rss_index>
+</layout> 

@@ -1,0 +1,90 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+	<?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('em0057_follow_us')->toHtml()  ?>
+	<?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('em0057_footer_friend')->toHtml()  ?>
+		
+<div class="header-container">
+    <div class="header">
+        <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+		
+		<div class="top-right">
+		<?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('em0057_newsletter')->toHtml()  ?>
+
+		
+			<div class="quick-access">
+			<?php echo $this->getChildHtml('topSearch') ?>
+				<div class="div_link-account">
+					<div class="div_link-account_inner">
+						<a href="<?php echo $this->getBaseUrl()?>customer/account/" class="link-account" id="link-account"><?php echo $this->__('My Account') ?></a>
+						<div id="top-links" style="display:none">						
+							<?php echo $this->getChildHtml('topLinks') ?>
+						</div>
+					</div>
+				</div>
+				<span>|</span>
+				<div class="div_link_wishlist">
+					<a title="<?php echo $this->__('My Wishlist') ?>" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK).'wishlist/'; ?>" ><?php echo $this->__('My Wishlist') ?></a>
+				</div>
+			</div>
+			<div class="menu-search-container">
+				<?php /*if($this->getChildHtml('main_menu') != '') : ?>
+				
+					<div class="menu-search">
+						<?php echo $this->getChildHtml('main_menu'); ?>
+						<?php echo $this->getChildHtml('topSearch') ?>
+					</div>
+				<?php else: */?>
+				
+					<div class="menu-default-search">
+						<?php echo $this->getChildHtml('topMenu'); ?>
+						
+					</div>
+				<?php // endif ?>
+				
+			</div>
+			<div class="div_link-cart">
+				<?php 
+					$_cartQty = Mage::getSingleton('checkout/cart')->getSummaryQty()?Mage::getSingleton('checkout/cart')->getSummaryQty():'0'; ?>
+				<?php 
+					$_subtotals = Mage::getSingleton('checkout/cart')->getQuote()->getTotals();
+					$subtotal = $_subtotals["subtotal"]->getValue();
+				?>
+				<div class="div_link-cart_inner">
+					<a href="<?php echo $this->getUrl('checkout/cart') ?>" id="topcartlink" class="top-link-cart"><span><?php echo $_cartQty ?></span> <?php echo $this->__('items') ?></a>
+					<?php echo $this->getChildHtml('cart_sidebar_top');?>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>

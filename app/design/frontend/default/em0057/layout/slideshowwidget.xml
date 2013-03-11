@@ -1,0 +1,13 @@
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="addCss"><name>slideshowwidget/css/wt-rotator.css</name></action>
+			<!--action method="addItem"><type>skin_js</type><name>slideshowwidget/js/jquery-1.4.2.min.js</name></action-->
+			<action method="addItem"><type>skin_js</type><name>slideshowwidget/js/jquery.wt-rotator.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/jquery.jcarousel.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/jquery.tinyscrollbar.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/toggle_tab.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/slide-up-down.js</name></action>
+		</reference>
+	</default>
+</layout>

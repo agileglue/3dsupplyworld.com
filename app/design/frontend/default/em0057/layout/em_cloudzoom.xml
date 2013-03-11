@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="1.1.1">
+	<default>
+		<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>css/em_cloudzoom/cloud-zoom.css</name><params/></action>			
+			<!--action method="addItem"><type>skin_js</type><name>js/em_cloudzoom/jquery-1.4.2.min.js</name><params/></action-->
+			<action method="addItem"><type>skin_js</type><name>js/em_cloudzoom/cloud-zoom.1.0.2.js</name><params/></action>
+		</reference>
+	</default>
+	<catalog_product_view>
+		<reference name="product.info">
+			<action method="unsetChild"><name>product.info.media</name></action>
+			<block type="em_cloudzoom/product_view_media" name="product.info.media" as="media" template="catalog/product/view/media.phtml"/>
+		</reference>
+	</catalog_product_view>
+	<review_product_list>
+		<reference name="product.info">
+			<action method="unsetChild"><name>product.info.media</name></action>
+			<block type="em_cloudzoom/product_view_media" name="product.info.media" as="media" template="catalog/product/view/media.phtml"/>
+		</reference>
+	</review_product_list>
+</layout>

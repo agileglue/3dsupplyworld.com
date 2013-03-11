@@ -1,0 +1,105 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+	$img = new EM_Em0057settings_Em0057settings();
+	$w = $img->get_related_width();
+	$h = $img->get_related_height();
+	$check_slide = $img->get_column_count();
+?>
+<?php if($this->getItems()->getSize()): ?>
+<div class="block block-related">   
+   <div id="slideshow_related" class="slideshow slideshow_related">
+		<div class="slideshow-box">
+			<p class="block-subtitle"><?php echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this); return false;"><?php echo $this->__('select all') ?></a></p>
+			<ul class="products-grid jcarousel-skin-tango" id="block-related">
+			<?php foreach($this->getItems() as $_item): ?>
+				<li class="item"> 
+					<?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
+						<?php if (!$_item->getRequiredOptions()): ?>
+							<input type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
+						<?php endif; ?>
+					<?php endif; ?>
+					<a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize($w,$h) ?>" width="<?php echo $w ?>" height="<?php echo $h ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+					<p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+					<?php echo $this->getPriceHtml($_item, true, '-related') ?> 
+				</li>
+			<?php endforeach ?>
+			</ul>			
+		</div>
+    </div>
+	<?php if(count($this->getItems()) >= $check_slide ) : ?>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery('#slideshow_related > div > ul').jcarousel({
+					wrap: 'circular',
+					auto:0,
+					buttonNextHTML:'<a class="next" href="javascript:void(0);">Next</a>',
+					buttonPrevHTML:'<a class="previous" href="javascript:void(0);">Pre</a>',
+					scroll:1,
+					animation:'slow'
+				});
+			});
+		</script>
+	<?php endif ?>
+		<script type="text/javascript">
+		//<![CDATA[
+		$$('.related-checkbox').each(function(elem){
+			Event.observe(elem, 'click', addRelatedToProduct)
+		});
+
+		var relatedProductsCheckFlag = false;
+		function selectAllRelated(txt){
+			if (relatedProductsCheckFlag == false) {
+				$$('.related-checkbox').each(function(elem){
+					elem.checked = true;
+				});
+				relatedProductsCheckFlag = true;
+				txt.innerHTML="<?php echo $this->__('unselect all') ?>";
+			} else {
+				$$('.related-checkbox').each(function(elem){
+					elem.checked = false;
+				});
+				relatedProductsCheckFlag = false;
+				txt.innerHTML="<?php echo $this->__('select all') ?>";
+			}
+			addRelatedToProduct();
+		}
+
+		function addRelatedToProduct(){
+			var checkboxes = $$('.related-checkbox');
+			var values = [];
+			for(var i=0;i<checkboxes.length;i++){
+				if(checkboxes[i].checked) values.push(checkboxes[i].value);
+			}
+			if($('related-products-field')){
+				$('related-products-field').value = values.join(',');
+			}
+		}
+		//]]>
+		</script>
+</div>
+<?php else : ?>
+	<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php endif ?>

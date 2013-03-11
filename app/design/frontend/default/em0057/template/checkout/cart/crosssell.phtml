@@ -1,0 +1,71 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Cart cross sell items template
+ *
+ * @see Mage_Checkout_Block_Cart_Crosssell
+ */
+	$img = new EM_Em0057settings_Em0057settings();
+	$w = $img->get_crosssell_width();
+	$h = $img->get_crosssell_height();
+	$check_slide = 5;
+?>
+<?php if($this->getItemCount()): ?>
+<div class="crosssell">
+    <h2><?php echo $this->__('Based on your selection, you may be interested in the following items') ?></h2>
+	<div id="slideshow_crosssell" class="slideshow slideshow_crosssell">
+		<div class="slideshow-box">
+			<ul class="products-grid jcarousel-skin-tango">
+				<?php foreach ($this->getItems() as $_item): ?>
+					<li class="item">
+						<a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize($w,$h); ?>" width="<?php echo $w ?>" height="<?php echo $h ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+						<div class="product-details">
+							<h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
+							<?php echo $this->getPriceHtml($_item, true) ?>	
+						</div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+	<?php if($this->getItemCount() > $check_slide ): ?>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery('#slideshow_crosssell > div > ul').jcarousel({
+					wrap: 'circular',
+					auto:0,
+					buttonNextHTML:'<a class="next" href="javascript:void(0);">Next</a>',
+					buttonPrevHTML:'<a class="previous" href="javascript:void(0);">Pre</a>',
+					scroll:1,
+					animation:'slow'
+				});
+			});
+		</script>
+	<?php endif ?>
+</div>
+<?php endif; ?>

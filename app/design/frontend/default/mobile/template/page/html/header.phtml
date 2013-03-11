@@ -1,0 +1,70 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_iphone
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php $_cartItems = $this->helper('checkout/cart')->getSummaryCount(); ?>
+<div class="header">
+    <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+	<?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+	<?php endif?>
+		
+	<div class="search">		
+		<?php echo $this->getChildHtml('topSearch') ?>
+	</div>
+	<div class="header_menu">
+		<div class="div_link-cart">
+			<?php 
+				$_cartQty = Mage::getSingleton('checkout/cart')->getSummaryQty()?Mage::getSingleton('checkout/cart')->getSummaryQty():'0';				
+				$_subtotals = Mage::getSingleton('checkout/cart')->getQuote()->getTotals();
+				$subtotal = $_subtotals["subtotal"]->getValue();
+			?>
+			<a href="<?php echo $this->getUrl('checkout/cart') ?>" id="topcartlink" class="top-link-cart"><span><span><?php echo $_cartQty ?></span><?php if($_cartQty > 1) echo $this->__('items'); else echo $this->__('item');?></span></a> 
+		</div>
+		
+
+		<?php if($this->helper('customer')->isLoggedIn()): ?>
+			<div class="div_link_signout">
+				<a href="<?php echo $this->getUrl('customer/account/logout') ?>"><span><?php echo $this->__("Sign out") ?></span></a>
+			</div>
+		<?php else:?>
+			<div class="div_link_signin">
+				<a href="<?php echo $this->getUrl('customer/account/login') ?>"><span><?php echo $this->__("Sign in") ?></span></a>
+			</div>
+		<?php endif?>
+	</div>
+	
+</div>
+<?php echo $this->getChildHtml('topCart') ?>
+<?php 
+if($this->getChildHtml('main_slideshow'))
+	echo $this->getChildHtml('main_slideshow');
+?>
+<?php echo $this->getChildHtml('hp_nav')?>
+<!--div class="search"><?php //echo $this->getChildHtml('topSearch') ?></div-->
