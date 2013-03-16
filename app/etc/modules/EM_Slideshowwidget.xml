@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ *  
+ *
+ * @package     EM_Slideshowwidget
+ * @copyright   Copyright (c) 2009 Quick Solution LT
+ * 
+ */
+-->
+<config>
+    <modules>
+        <EM_Slideshowwidget>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Cms />
+            </depends>
+        </EM_Slideshowwidget>
+    </modules>
+</config>

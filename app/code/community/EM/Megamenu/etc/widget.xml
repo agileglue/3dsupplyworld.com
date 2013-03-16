@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Sample
+ * @package     Sample_WidgetTwo
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<widgets>
+    <megamenu_list type="megamenu/catalogmenu" translate="name description" module="megamenu">
+        <name>EM Mega Menu</name>
+        <description>Adds a simple menu of Category and Static Block</description>
+        <parameters>
+            <category translate="label">
+                <visible>1</visible>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>megamenu/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>6</sort_order>
+            </category>
+           
+            <ul_class>
+	            <label>UL Class</label>
+                <visible>1</visible>
+                <description>Class name of first level ul</description>
+                <type>text</type>
+                <sort_order>1</sort_order>
+            </ul_class>
+            <none_ul_root translate="label">
+	            <label>None UL Root</label>
+                <visible>1</visible>
+                <description>Allow ul exists or not</description>
+                <type>select</type>
+				<default>0</default>
+				<values>
+                    <none_ul1 translate="label">
+                        <value>0</value>
+                        <label>False</label>
+                    </none_ul1>
+					<none_ul2 translate="label">
+                        <value>1</value>
+                        <label>True</label>
+                    </none_ul2>
+                </values>
+                <sort_order>1</sort_order>
+            </none_ul_root>
+			
+			<none_li_first_class translate="label">
+	            <label>None Li First Class</label>
+                <visible>1</visible>
+                <description>Allow first li tag which has greatest "level" has 'first' class or not</description>
+                <type>select</type>
+				<values>
+                    <none_li_first1 translate="label">
+                        <value>0</value>
+                        <label>False</label>
+                    </none_li_first1>
+					<none_li_first2 translate="label">
+                        <value>1</value>
+                        <label>True</label>
+                    </none_li_first2>
+                </values>
+                <sort_order>1</sort_order>
+            </none_li_first_class>
+			
+			<none_li_last_class translate="label">
+	            <label>None Li First Class</label>
+                <visible>1</visible>
+                <description>Allow last li tag which has greatest "level" has 'last' class or not</description>
+                <type>select</type>
+				<values>
+                    <none_li_last1 translate="label">
+                        <value>0</value>
+                        <label>False</label>
+                    </none_li_last1>
+					<none_li_last2 translate="label">
+                        <value>1</value>
+                        <label>True</label>
+                    </none_li_last2>
+                </values>
+                <sort_order>1</sort_order>
+            </none_li_last_class>
+			
+            <ul_id>
+                <label>Ul Id</label>
+                <visible>1</visible>
+                <description>Id of ul</description>
+                <type>text</type>
+                <sort_order>2</sort_order>
+            </ul_id>
+            
+            <level_class>
+                <label>Level Class</label>
+                <description>The numbers are appended to level class</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>0</value>
+                <sort_order>2</sort_order>
+            </level_class>
+                      
+            <template translate="label">
+                <label>Frontend Template</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <values>
+                    <list translate="label">
+                        <value>em_megamenu/menu.phtml</value>
+                        <label>List Menu</label>
+                    </list>
+                </values>
+            </template>
+			<set_layout_menu translate="label">
+	            <label>Set Layout Meunu class </label>
+                <visible>1</visible>
+				<required>1</required>
+                <description>Select to dislay layout meunu </description>
+                <type>select</type>
+				<values>
+                    <none_li_last1 translate="label">
+                        <value>1</value>
+                        <label>show all categories from the drop down menu</label>
+                    </none_li_last1>
+					  <none_li_last2 translate="label">
+                        <value>2</value>
+                        <label>show all categories as groups from the drop-down menu</label>
+                    </none_li_last2>
+					  <none_li_last3 translate="label">
+                        <value>3</value>
+                        <label>show all categories as drop down menu from the drop-down menu</label>
+                    </none_li_last3>
+					  <none_li_last4 translate="label">
+                        <value>4</value>
+                        <label>show all categories from the top menu</label>
+                    </none_li_last4>
+					  <none_li_last5 translate="label">
+                        <value>5</value>
+                        <label>show all categories as groups from the top menu</label>
+                    </none_li_last5>
+					<none_li_last6 translate="label">
+                        <value>6</value>
+                        <label>show all categories as drop down menu from the top menu</label>
+                    </none_li_last6>
+					<none_li_last7 translate="label">
+                        <value>other</value>
+                        <label>other</label>
+                    </none_li_last7>
+                </values>
+				</set_layout_menu>
+			<max_row_per_column>
+                <label>Max Row Per Column</label>
+                <description>Max Row Per Column</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>10</value>
+            </max_row_per_column>
+        </parameters>
+    </megamenu_list>
+</widgets>

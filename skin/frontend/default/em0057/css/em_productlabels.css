@@ -1,0 +1,27 @@
+.products-grid .item, .products-list .item { position:relative }
+.product-img-box { position:relative; }
+.product-view .box-up-sell .products-grid td div.td { position:relative; }
+.mini-products-list .product { position:relative; }
+.crosssell .item { position:relative }
+
+.featured_products_content .productlabels_icons,
+.home_deal_products .productlabels_icons ,
+.home_new_products_content  .productlabels_icons { position:absolute; top:0 !important; right:20px !important; }
+
+.products-list li.item .productlabels_icons{ position:absolute;right:auto;left:112px;top:10px;}
+.products-grid li.item .productlabels_icons{ position:absolute;right:65px;top:-10px;}
+.home_deal_products .productlabels_icons{right:60px !important;top:-10px !important;}
+.product-img-box .productlabels_icons { z-index:10; }
+.productlabels_icons .label { float:right; background:url(../images/bkg_label.png) 0 0 no-repeat; width:39px; height:41px; font-size:14px;color:#fff; line-height:1em; text-align:center; padding:0;text-transform:uppercase;font-family:MyriadProBold;line-height:18px; }
+.productlabels_icons .label { padding:10px 0 0; }
+.productlabels_icons .nobg { background:none; width:auto; height:auto; }
+
+.productlabels_icons .orange { background-position:0 0 }
+.productlabels_icons .yellow { background-position:0 -60px }
+.productlabels_icons .blue { background-position:0 -120px }
+.productlabels_icons .violet { background-position:0 -180px }
+.productlabels_icons .red { background-position:0 -240px }
+.productlabels_icons .black { background-position:0 -300px }
+.productlabels_icons .new { background-position:-200px 0 }
+.productlabels_icons .special { background-position:-200px -60px }
+.productlabels_icons .bestseller { background-position:-200px -120px }

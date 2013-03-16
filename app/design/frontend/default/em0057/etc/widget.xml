@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_blank
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<widgets>
+    <new_products>
+        <parameters>
+            <template>
+                <values>
+                    <list_default translate="label">
+                        <value>catalog/product/widget/new/column/new_default_list.phtml</value>
+                        <label>New Products Images and Names Template</label>
+                    </list_default>
+                    <list_names translate="label">
+                        <value>catalog/product/widget/new/column/new_names_list.phtml</value>
+                        <label>New Products Names Only Template</label>
+                    </list_names>
+                    <list_images translate="label">
+                        <value>catalog/product/widget/new/column/new_images_list.phtml</value>
+                        <label>New Products Images Only Template</label>
+                    </list_images>
+                </values>
+            </template>
+        </parameters>        
+    </new_products>
+
+    <recently_viewed>
+        <parameters>
+            <template>
+                <values>
+                    <list_default translate="label">
+                        <value>reports/widget/viewed/column/viewed_default_list.phtml</value>
+                        <label>Viewed Products Images and Names Template</label>
+                    </list_default>
+                    <list_names translate="label">
+                        <value>reports/widget/viewed/column/viewed_names_list.phtml</value>
+                        <label>Viewed Products Names Only Template</label>
+                    </list_names>
+                    <list_images translate="label">
+                        <value>reports/widget/viewed/column/viewed_images_list.phtml</value>
+                        <label>Viewed Products Images Only Template</label>
+                    </list_images>
+                </values>
+            </template>
+        </parameters>
+        <supported_blocks>
+            <left_column>
+                <block_name>left</block_name>
+                <template>
+                    <default>list_default</default>
+                    <names_only>list_names</names_only>
+                    <images_only>list_images</images_only>
+                </template>
+            </left_column>
+            <main_content>
+                <block_name>content</block_name>
+                <template>
+                    <grid>default</grid>
+                    <list>list</list>
+                </template>
+            </main_content>
+            <right_column>
+                <block_name>right</block_name>
+                <template>
+                    <default>list_default</default>
+                    <names_only>list_names</names_only>
+                    <images_only>list_images</images_only>
+                </template>
+            </right_column>
+        </supported_blocks>
+    </recently_viewed>
+
+    <recently_compared>
+        <parameters>
+            <template>
+                <values>
+                    <list_default translate="label">
+                        <value>reports/widget/compared/column/compared_default_list.phtml</value>
+                        <label>Compared Products Images and Names Template</label>
+                    </list_default>
+                    <list_names translate="label">
+                        <value>reports/widget/compared/column/compared_names_list.phtml</value>
+                        <label>Compared Product Names Only Template</label>
+                    </list_names>
+                    <list_images translate="label">
+                        <value>reports/widget/compared/column/compared_images_list.phtml</value>
+                        <label>Compared Product Images Only Template</label>
+                    </list_images>
+                </values>
+            </template>
+        </parameters>
+        <supported_blocks>
+            <left_column>
+                <block_name>left</block_name>
+                <template>
+                    <default>list_default</default>
+                    <names_only>list_names</names_only>
+                    <images_only>list_images</images_only>
+                </template>
+            </left_column>
+            <main_content>
+                <block_name>content</block_name>
+                <template>
+                    <grid>default</grid>
+                    <list>list</list>
+                </template>
+            </main_content>
+            <right_column>
+                <block_name>right</block_name>
+                <template>
+                    <default>list_default</default>
+                    <names_only>list_names</names_only>
+                    <images_only>list_images</images_only>
+                </template>
+            </right_column>
+        </supported_blocks>
+    </recently_compared>
+	
+	<flexiblewidget_list>
+        <parameters>
+            <template>
+                <values>                    
+                    <grid translate="label">
+                        <value>flexiblewidget/grid.phtml</value>
+                        <label>Grid Template</label>
+                    </grid>
+                    <list translate="label">
+                        <value>flexiblewidget/list.phtml</value>
+                        <label>Listing Template</label>
+                    </list>
+					<deal_product translate="label">
+                        <value>flexiblewidget/deal_product.phtml</value>
+                        <label>Deal Products Custom Template</label>
+                    </deal_product>
+					<featured_product translate="label">
+                        <value>flexiblewidget/featured_products.phtml</value>
+                        <label>Featured Products Custom Template</label>
+                    </featured_product>
+                </values>
+            </template>
+        </parameters>
+    </flexiblewidget_list>	
+	
+	<recentreviewproducts_list>
+        <parameters>
+            <template>
+                <values>  
+					<list translate="label">
+                        <value>em_recentviewproducts/list_products_simple.phtml</value>
+                        <label>List Recent Reviewed products</label>
+                    </list>
+					<grid translate="label">
+                        <value>em_recentviewproducts/grid_products_simple.phtml</value>
+                        <label>Grid Recent Reviewed products</label>
+                    </grid>
+					<cust translate="label">
+                        <value>custom_template</value>
+                        <label>Display as custom template ...</label>
+                    </cust>
+                </values>
+            </template>
+        </parameters>
+    </recentreviewproducts_list>
+</widgets>

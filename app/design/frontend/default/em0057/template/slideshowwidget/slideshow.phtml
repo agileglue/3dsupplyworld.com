@@ -1,0 +1,172 @@
+<?php
+/**
+ * Magento
+ *
+ *  
+ *
+ * @package     EM_SlideshowWidget
+ * @copyright   Copyright (c) 2009 Quick Solution LT
+ * 
+ */
+?>
+<div class="container">
+	<div class="wt-rotator">
+    	<div class="screen">
+            <noscript>
+            	<!-- placeholder 1st image when javascript is off -->
+                <div><img src="images/madness_arch2.jpg" alt="123" title="123" /></div>
+            </noscript>
+      	</div>
+        <div class="c-panel">
+      		<div class="buttons">
+            	<div class="prev-btn"></div>
+                <div class="play-btn"></div>    
+            	<div class="next-btn"></div>               
+            </div>
+            <div class="thumbnails">
+                <ul>
+					<?php if($image1 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image1 ?>"></a>
+						<?php if($url1!=""):?>
+							<a href="<?php echo $url1;?>"></a>
+						<?php endif;?>
+                        <div>
+							<?php echo $text1 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+					<?php if($image2 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image2 ?>"></a>
+						<?php if($url2!=""):?>
+						<a href="<?php echo $url2;?>"></a>
+						<?php endif;?>
+                        <div>
+                           <?php echo $text2 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+					<?php if($image3 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image3 ?>"></a>
+						<?php if($url3!=""):?>
+						<a href="<?php echo $url3;?>"></a>
+						<?php endif;?>
+                        <div>
+                           <?php echo $text3 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+					<?php if($image4 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image4 ?>"></a>
+						<?php if($url4!=""):?>
+						<a href="<?php echo $url4;?>"></a>
+						<?php endif;?>
+                        <div>
+                           <?php echo $text4 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+					<?php if($image5 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image5 ?>"></a>
+						<?php if($url5!=""):?>
+						<a href="<?php echo $url5;?>"></a>
+						<?php endif;?>
+                        <div>
+                           <?php echo $text5 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+					<?php if($image6 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image6 ?>"></a>
+						<?php if($url6!=""):?>
+							<a href="<?php echo $url6;?>"></a>
+						<?php endif;?>
+                        <div>
+                           <?php echo $text6 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+					<?php if($image7 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image7 ?>"></a>
+						<?php if($url7!=""):?>
+							<a href="<?php echo $url7;?>"></a>
+						<?php endif;?>
+                        <div>
+                           <?php echo $text7 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+					<?php if($image8 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image8 ?>"></a>
+						<?php if($url8!=""):?>
+							<a href="<?php echo $url8;?>"></a>
+						<?php endif;?>
+                        <div>
+                           <?php echo $text8 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+					<?php if($image9 != ""): ?> 
+                    <li>
+                    	<a href="<?php echo $image9 ?>"></a>
+						<?php if($url9!=""):?>
+						<a href="<?php echo $url9;?>"></a>
+						<?php endif;?>
+                        <div>
+                           <?php echo $text9 ?>
+                    	</div>                         
+                    </li>
+					<?php endif ?>
+              	</ul>
+            </div>     
+        </div>
+    </div>	
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready(	
+		function() {
+			jQuery(".container").wtRotator({
+				width:<?php echo $width ?>,
+				height:<?php echo $height ?>,
+				button_width:24,
+				button_height:24,
+				button_margin:5,
+				auto_start:<?php echo $autostart ?>,
+				delay:<?php echo $delay ?>,
+				transition:"<?php echo $transition ?>",
+				transition_speed:<?php echo $transitionspeed ?>,
+				auto_center:<?php echo $autocenter ?>,
+				cpanel_position:"<?php echo $cpanelposition ?>",
+				cpanel_align:"<?php echo $cpanelalign ?>",
+				timer_align:"<?php echo $timeralign ?>",
+				display_thumbs:<?php echo $displaybutton ?>,
+				display_dbuttons:<?php echo $displaybutton ?>,
+				display_playbutton:<?php echo $displaybutton ?>,
+				display_numbers:<?php echo $displaybutton ?>,
+				display_timer:<?php echo $displaytimer ?>,
+				mouseover_pause:<?php echo $mouseoverpause ?>,
+				cpanel_mouseover:<?php echo $cpanelmouseover ?>,
+				text_mouseover:<?php echo $textmouseover ?>,
+				text_effect:"<?php echo $texteffect ?>",
+				text_sync:<?php echo $textsync ?>,
+				tooltip_type:"image",
+				shuffle:<?php echo $shuffle ?>,
+				block_size:75,
+				vert_size:55,
+				horz_size:50,
+				block_delay:25,
+				vstripe_delay:75,
+				hstripe_delay:180			
+			});
+		}
+	);
+</script> 
+

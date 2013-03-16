@@ -1,0 +1,68 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * @see Mage_Page_Block_Template_Links
+ */	
+$login	=	new Mage_Customer_Block_Form_Login();
+?>
+<?php $_links = $this->getLinks(); ?>
+<?php if(count($_links)>0): ?>
+<div class="links"<?php if($this->getName()): ?> id="<?php echo $this->getName() ?>"<?php endif;?>>
+	<div class="login_link">
+		<ul>			
+			<?php if (Mage::getSingleton('customer/session')->isLoggedIn()==0): ?>
+				<li class="login_signup"><a title="<?php echo $this->__('Log in') ?>" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK).'customer/account/login'; ?>"><?php echo $this->__('Log in') ?></a></li>
+			<?php else: ?>
+				<li class="login_logout"><a title="<?php echo $this->__('Log out') ?>" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK).'customer/account/logout'; ?>"><?php echo $this->__('Log out') ?></a></li>
+			<?php endif ?>			
+			<li class="login_myaccount"><a title="<?php echo $this->__('My Account') ?>" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK).'customer/account/'; ?>" ><?php echo $this->__('My Account') ?></a></li>
+		</ul>
+	</div>
+	<?php if (Mage::getSingleton('customer/session')->isLoggedIn()==0): ?>
+		<form action="<?php echo $login->getPostActionUrl() ?>" method="post">
+			<div class="block-content">
+				<label for="mini-login"><?php echo $this->__('Email:') ?></label><input type="text" name="login[username]" id="mini-login" class="input-text autocompleteOff" />
+				<label for="mini-password"><?php echo $this->__('Password:') ?></label><input type="password" name="login[password]" id="mini-password" class="input-text autocompleteOff" />				
+				<div class="login_forgotpassword">
+					<a href="<?php echo $login->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
+				</div>
+				<div class="login_register">
+					<span><?php echo $this->__("Don't have an account ? ") ?></span>
+					<a title="<?php echo $this->__('Sign up') ?>" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK).'customer/account/create'; ?>"><?php echo $this->__('Sign up') ?></a>
+				</div>
+				<div class="actions">
+					<button type="submit" class="button"><span><span><?php echo $this->__('Login') ?></span></span></button>
+				</div>
+			</div>
+		</form>
+	<?php endif ?>
+</div>
+<?php endif; ?>
+<script type="text/javascript">
+	jQuery(document).ready(function(){jQuery("input.autocompleteOff").attr("autocomplete","off");});
+</script>

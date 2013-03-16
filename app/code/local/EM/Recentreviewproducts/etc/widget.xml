@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<widgets>
+    <recentreviewproducts_list type="recentreviewproducts/list" translate="name description" module="recentreviewproducts" >
+        <name>EM Recent Reviewed Products</name>
+        <description type="desc">EM Reviewed Products</description>
+        <parameters>			
+            <limit_count>
+                <label>Limit Count</label>
+                <description>The numbers of product will be show</description>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>10</value>
+                <sort_order>3</sort_order>
+            </limit_count>
+			
+			<column_count>
+                <label>Column Count</label>
+                <description>The numbers of products per row</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+                <value>4</value>
+                <sort_order>3</sort_order>
+            </column_count>
+           <!-- 
+          <order_by>
+                <label>Order by</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+				<sort_order>4</sort_order>
+                <values>
+                    <order_by_1 translate="label">
+                        <value>name asc</value>
+                        <label>Name ASC</label>
+                    </order_by_1>
+					<order_by_11 translate="label">
+                        <value>name desc</value>
+                        <label>Name DESC</label>
+                    </order_by_11>
+                    <order_by_2 translate="label">
+                        <value>position asc</value>
+                        <label>Position ASC</label>
+                    </order_by_2>
+                    <order_by_21 translate="label">
+                        <value>position desc</value>
+                        <label>Position DESC</label>
+                    </order_by_21>					
+                    <order_by_3 translate="label">
+                        <value>price asc</value>
+                        <label>Price ASC</label>
+                    </order_by_3>
+                    <order_by_31 translate="label">
+                        <value>price desc</value>
+                        <label>Price DESC</label>
+                    </order_by_31>					
+                </values>
+                <sort_order></sort_order>
+            </order_by>		
+			-->		
+			<new_category translate="label">            
+	            <label>Choose Categories</label>
+	            <visible>1</visible>
+	            <description>You can choose many categories. Leave empty for selecting all categories</description>
+	            <type>multiselect</type>
+	            <source_model>recentreviewproducts/categorytree</source_model>
+	            <sort_order>1</sort_order>            
+         	</new_category>
+            				
+            <choose_template translate="label">
+                <label>Frontend Template</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+				<sort_order>5</sort_order>
+                <values>
+                    <list translate="label">
+                        <value>em_recentviewproducts/list_products_simple.phtml</value>
+                        <label>List Recent Reviewed products</label>
+                    </list>
+					<grid translate="label">
+                        <value>em_recentviewproducts/grid_products_simple.phtml</value>
+                        <label>Grid Recent Reviewed products</label>
+                    </grid>
+					<cust translate="label">
+                        <value>custom_template</value>
+                        <label>Display as custom template ...</label>
+                    </cust>
+                </values>				
+            </choose_template>
+			
+			<custom_theme>				
+				<label>Custom template :</label>
+				<description>Effect only when selecting "Display as custom template. By default, using 'em_recentreviewedproducts/custom.phtml'"</description>
+				<visible>1</visible>				
+				<type>text</type>
+				<value></value>
+				<sort_order>6</sort_order>
+			</custom_theme>
+			
+			<cache_lifetime>				
+				<label>Cache Lifetime (Seconds)</label>
+				<description>7200 seconds by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+				<visible>1</visible>				
+				<type>text</type>
+				<value></value>
+				<sort_order>7</sort_order>
+			</cache_lifetime>
+			
+        </parameters>
+    </recentreviewproducts_list>    
+</widgets>

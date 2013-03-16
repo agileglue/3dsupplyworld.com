@@ -1,0 +1,12 @@
+<?php if(Mage::getStoreConfig('blog/menu/show_menu_right')):?>
+<div class="block em_blog-cat">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Blog Categories')?></span></strong>
+    </div>
+    <div class="block-content">
+        <ol id="nav-bog">
+            <?php echo $this->renderMenuBlog();?>
+        </ol>
+    </div>
+</div>
+<?php endif;?>

@@ -1,0 +1,59 @@
+<?php
+
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+    $_collectionSize = $_productCollection->count();
+    $_columnCount = $this->getColumnCount();
+	
+	$conf = new EM_Em0057settings_Em0057settings();	
+	$w 	= $conf->get_widget_width();
+	$h 	= $conf->get_widget_height();	
+?>
+<?php if(!$_productCollection->count()): ?>
+
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+
+<div class="category-products">  
+    <?php // Grid Mode ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>  
+        <?php if ($i++%$_columnCount==0): ?>
+        <ul class="products-grid">
+        <?php endif ?>
+			<?php
+				$name	=	$_helper->productAttribute($_product, $_product->getName(), 'name');
+				if(strlen($name) >	20 ){
+					$tam	=	substr($name, 0, 20);
+					$plit	=	explode(" ", $tam);
+					if(count($plit) > 1){
+						$tam	=	array_slice($plit,0,count($plit)-1);
+						$name	=	implode(" ", $tam).' ...';
+					}
+					else
+						$name	=	$plit[0];
+				}
+				$desc	=	$_product->getShortDescription();
+				if(strlen($desc) >	75 ){
+					$tam	=	substr($desc, 0, 75);
+					$plit	=	explode(" ", $tam);
+					if(count($plit) > 1){
+						$tam	=	array_slice($plit,0,count($plit)-1);
+						$desc	=	implode(" ", $tam).' ...';
+					}
+					else
+						$desc	=	$plit[0];
+				}
+			?>
+            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($w,$h); ?>" width="<?php echo $w ?>" height="<?php echo $h ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $name ?></a></h2>               
+				<div class="desc_products"><?php echo $desc ?></div>
+                <?php echo $this->getPriceHtml($_product, true) ?>               
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </ul>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+</div>
+<?php endif; ?>

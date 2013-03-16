@@ -1,0 +1,20 @@
+<?php
+/**
+ * Magento
+ *
+ *  
+ *
+ * @package     EM_MediaUploadUrlWidget
+ * @copyright   Copyright (c) 2009 Quick Solution LT
+ * 
+ */
+?>
+<div <?php if($id != "") : ?>id="<?php echo $id; ?>" <?php endif ?> class="emmediawidget <?php echo $class; ?>" <?php echo $attrs; ?>>
+    <object width="<?php echo $width; ?>" height="<?php echo $height; ?>">
+        <param name="movie" value="http://www.youtube.com/v/<?php echo $media; ?>?fs=1&amp;hl=en_US"></param>
+        <param name="allowFullScreen" value="true"></param>
+        <param name="allowscriptaccess" value="always"></param>
+        <embed src="http://www.youtube.com/v/<?php echo $media; ?>?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
+        </embed>
+    </object>
+</div>

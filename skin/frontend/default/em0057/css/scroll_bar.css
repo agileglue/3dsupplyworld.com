@@ -1,0 +1,31 @@
+/*   CSS of scrollbar in homepage   */
+.col2-left-layout   #scrollbar1, .col2-right-layout   #scrollbar1{}
+.col3-layout   #scrollbar1{width:480px;}
+#scrollbar1 { width:auto;margin:0px;padding:0; }
+#scrollbar1 h2{}
+#scrollbar1 h2.product-name{ }
+#scrollbar1 h2.product-name a{ font-weight: bold; font-size: 14px; }
+#scrollbar1 .viewport { width:auto;height:160px;overflow: hidden;position: relative; }
+#scrollbar1 .overview { list-style: none; padding:10px 0 0 0;margin: 0;position: absolute;left: 0;top: 0; }
+#scrollbar1 .overview   .products-grid li.item{min-height:150px; width:200px;margin: 0;position:relative;text-align:left;}
+#scrollbar1 .overview   .products-grid li.item .product-image {display:inline;}
+#scrollbar1 .overview   .products-grid li.item .product-item{padding:0 7px 10px 20px; position: relative;}
+#scrollbar1 .overview   .products-grid li.item .product-item .productlabels_icons{left: 153px !important;}
+#scrollbar1 .overview   .products-grid li.item:hover{}
+#scrollbar1 .thumb .end{ background:#000;}
+#scrollbar1 .thumb {height:8px;cursor: pointer; overflow: hidden; position: absolute; top: 0;}
+#scrollbar1 .scrollbar { position: relative; margin: 0 0 5px; clear: both; height: 15px;}
+#scrollbar1 .track {height:8px;  position: relative; padding:0;border:#d9d9d9 1px solid;}
+#scrollbar1 .thumb .end { overflow: hidden; height:4;margin:2px;height:4px; }
+#scrollbar1 .disable{ display: none; }
+
+
+
+.home_top_selling { width: 700px;float: left;border-right: 1px solid #D8D8D8;margin-top: -8px;}
+.content-em-top-selling { width: 700px;margin-top: -26px;}
+
+.content-em-top-selling  h3,
+.content-em-top-part h2.title
+ { color: #2e2e2e;font-family: 'HelveticaNeueBold'; font-size: 22px; padding-bottom: 30px; margin-bottom: 0;}
+.content-em-top-part{ width: 199px; float: right; margin-top:-13px;overflow:hidden; position:relative; height:350px;}
+

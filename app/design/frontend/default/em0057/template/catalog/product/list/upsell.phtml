@@ -1,0 +1,65 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+	$img = new EM_Em0057settings_Em0057settings();
+	$w = $img->get_upsell_width();
+	$h = $img->get_upsell_height();
+	$check_slide = $img->get_column_count();
+?>
+<?php if(count($this->getItemCollection()->getItems())): ?>
+	<?php $_productCollection=$this->getItemCollection()->getItems();?>
+	<div class="box-collateral box-up-sell">     
+		<div id="slideshow_upsell" class="slideshow slideshow_upsell">
+			<div class="slideshow-box">
+				<?php $this->resetItemsIterator() ?>
+				<ul class="products-grid jcarousel-skin-tango">
+					<?php foreach ($_productCollection as $_link): ?>	
+						<li class="item">
+							<a href="<?php echo $_link->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_link->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_link, 'small_image')->resize($w,$h) ?>" width="<?php echo $w ?>" height="<?php echo $h ?>" alt="<?php echo $this->htmlEscape($_link->getName()) ?>" /></a>
+							<h3 class="product-name"><a href="<?php echo $_link->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_link->getName()) ?>"><?php echo $this->htmlEscape($_link->getName()) ?></a></h3>
+							<?php echo $this->getPriceHtml($_link, true, '-upsell') ?>                
+						</li>           
+					<?php endforeach ?>
+				</ul>
+			</div>
+		</div>
+		<?php if(count($this->getItemCollection()->getItems()) >= $check_slide): ?>
+			<script type="text/javascript">
+				jQuery(document).ready(function() {
+					jQuery('#slideshow_upsell > div > ul').jcarousel({
+						wrap: 'circular',
+						auto:0,
+						buttonNextHTML:'<a class="next" href="javascript:void(0);">Next</a>',
+						buttonPrevHTML:'<a class="previous" href="javascript:void(0);">Pre</a>',
+						scroll:1,
+						animation:'slow'
+					});
+				});
+			</script>
+		<?php endif ?>
+	</div>
+<?php else : ?>
+	<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php endif ?>

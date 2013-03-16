@@ -1,0 +1,68 @@
+<?php
+/**
+ * OneStepCheckout by EMThemes
+ *
+ * Based on Magento 1.7.0.0 source code
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 EMThemes. (http://www.emthemes.com)
+ * @license     Commercial License. Granted for authorized users only.
+ */
+?>
+<form id="discount-coupon-form" action="<?php echo $this->getUrl('checkout/cart/couponPost') ?>" method="post" onsubmit="return false">
+    <div class="discount">
+        <div class="discount-form">
+            <label for="coupon_code"><?php echo $this->__('Enter your coupon code if you have one.') ?></label>
+            <input type="hidden" name="remove" id="remove-coupone" value="0" />
+            <div class="input-box">
+                <input class="input-text" id="coupon_code" name="coupon_code" value="<?php echo $this->htmlEscape($this->getCouponCode()) ?>" />
+				<button type="button" title="<?php echo $this->__('Apply Coupon') ?>" class="button" onclick="discountForm.submit(false)" value="<?php echo $this->__('Apply Coupon') ?>"><span><span><?php echo $this->__('Apply Coupon') ?></span></span></button>
+				<?php if(strlen($this->getCouponCode())): ?>
+                    &nbsp; <button type="button" title="<?php echo $this->__('Cancel Coupon') ?>" class="button" onclick="discountForm.submit(true)" value="<?php echo $this->__('Cancel Coupon') ?>"><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>
+                <?php endif;?>
+            </div>
+        </div>
+		<input type="hidden" name="return_url" value="<?php echo $this->getUrl('checkout/onepage') ?>" />
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+
+function onCouponPost(transport) {
+	new Ajax.Updater('checkout-review-load', checkout.reviewUrl, {method: 'get', onFailure: checkout.ajaxFailure.bind(checkout), evalScripts: true });
+	checkout.resetLoadWaiting();
+	onShippingMethodChange();
+}
+
+var discountForm = new VarienForm('discount-coupon-form');
+discountForm.submit = function (isRemove) {
+    if (isRemove) {
+        $('coupon_code').removeClassName('required-entry');
+        $('remove-coupone').value = "1";
+    } else {
+        $('coupon_code').addClassName('required-entry');
+        $('remove-coupone').value = "0";
+    }
+	
+	// send coupon if payment was choosed
+	if (!payment.currentMethod) {
+		alert('<?php echo $this->__("Please specify payment method.")?>');
+		return;
+	}
+
+	checkout.setLoadWaiting('payment');
+	var request = new Ajax.Request(
+		$('discount-coupon-form').readAttribute('action'),
+		{ method: 'post', onSuccess: onCouponPost, parameters: {
+			coupon_code: $('coupon_code').value,
+			remove: $('remove-coupone').value,
+			return_url: '<?php echo $this->getUrl('checkout/onepage') ?>'
+			}
+		}
+	);
+
+}
+
+//]]>
+</script>

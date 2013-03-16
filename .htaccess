@@ -200,3 +200,7 @@ ExpiresDefault "access 2 days"
 ## http://developer.yahoo.com/performance/rules.html#etags
 
     #FileETag none
+    # 
+    # 
+	php_value "session.save_path" "/tmp"
+	php_value "session.save_handler" "files"

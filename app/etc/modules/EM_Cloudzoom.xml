@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <EM_Cloudzoom>
+            <active>true</active>
+            <codePool>local</codePool>
+        </EM_Cloudzoom>
+	</modules>
+</config>

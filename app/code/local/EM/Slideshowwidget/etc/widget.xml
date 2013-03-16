@@ -1,0 +1,722 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ *  
+ *
+ * @package     EM_SlideshowWidget
+ * @copyright   Copyright (c) 2009 Quick Solution LT
+ * 
+ */
+-->
+<widgets>
+    <slideshowwidget type="slideshowwidget/create" translate="name description" module="slideshowwidget">
+        <name>Create Slideshow</name>
+        <description>create a slideshow</description>
+        <parameters>
+			<text1>
+				<label>Text for slide 1</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text1>
+			<url1>
+				<label>Url for image 1</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url1>
+            <image1>
+                <label>Image for slide 1</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image1>
+			
+			<text2>
+				<label>Text for slide 2</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text2>
+			<url2>
+				<label>Url for image 2</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url2>
+            <image2>
+                <label>Image for slide 2</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image2>
+			
+			<text3>
+				<label>Text for slide 3</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text3>
+			<url3>
+				<label>Url for image 3</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url3>
+			<image3>
+                <label>Image for slide 3</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image3>
+			
+			<text4>
+				<label>Text for slide 4</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text4>
+			<url4>
+				<label>Url for image 4</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url4>
+			<image4>
+                <label>Image for slide 4</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image4>
+			
+			<text5>
+				<label>Text for slide 5</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text5>
+			<url5>
+				<label>Url for image 5</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url5>
+			<image5>
+                <label>Image for slide 5</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image5>
+			
+			<text6>
+				<label>Text for slide 6</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text6>
+			<url6>
+				<label>Url for image 6</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url6>
+			<image6>
+                <label>Image for slide 6</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image6>
+			
+			<text7>
+				<label>Text for slide 7</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text7>
+			<url7>
+				<label>Url for image 7</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url7>
+			<image7>
+                <label>Image for slide 7</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image7>
+			
+			<text8>
+				<label>Text for slide 8</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text8>
+			<url8>
+				<label>Url for image 8</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url8>
+			<image8>
+                <label>Image for slide 8</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image8>
+			
+			<text9>
+				<label>Text for slide 9</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</text9>
+			<url9>
+				<label>Url for image 9</label>
+				<visible>1</visible>
+                <required>0</required>
+                <type>textslideshow</type>
+			</url9>
+			<image9>
+                <label>Image for slide 9</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>label</type>
+				<helper_block>
+                    <type>slideshowwidget/chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </image9>
+			
+			<width>
+                <label>Width</label>
+				<description>The width of the rotator in pixel.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+				<value>825</value>
+            </width>
+			<height>
+                <label>Height</label>
+				<description>The height of the rotator in pixel.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+				<value>300</value>
+            </height>
+			<delay>
+                <label>Delay</label>
+				<description>The global time delay for image rotation in milliseconds. If delay is set per slide, it will take precedence over the global delay</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+				<value>5000</value>
+            </delay>
+			<displaybutton>
+                <label>Display control panel</label>
+				<description>To specify if the control panel are visible.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                    <no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                </values>
+            </displaybutton>
+			<autostart>
+				<label>Auto start</label>
+				<description>Specify if image rotation initially starts.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                    <no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                </values>
+			</autostart>
+			<transition>
+				<label>Transition</label>
+				<description>The global transition use for images. If transition is set per slide, it will take precedence over the global transition.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+                    <random translate="label">
+                        <value>random</value>
+                        <label>Random transition</label>
+                    </random>
+                    <none translate="label">
+                        <value>none</value>
+                        <label>No transition</label>
+                    </none>
+					<fade translate="label">
+                        <value>fade</value>
+                        <label>Fade in transition</label>
+                    </fade>
+					<blocktop translate="label">
+                        <value>block.top</value>
+                        <label>Blocks expand, starting from top</label>
+                    </blocktop>
+					<blockbottom translate="label">
+                        <value>block.bottom</value>
+                        <label>Blocks expand, starting from bottom</label>
+                    </blockbottom>
+					<blockleft translate="label">
+                        <value>block.left</value>
+                        <label>Blocks expand, starting from left</label>
+                    </blockleft>
+					<blockright translate="label">
+                        <value>block.right</value>
+                        <label>Blocks expand, starting from right</label>
+                    </blockright>
+					<diagfade translate="label">
+                        <value>diag.fade</value>
+                        <label>Blocks fade in, starting diagonally</label>
+                    </diagfade>
+					<diagexp translate="label">
+                        <value>diag.exp</value>
+                        <label>Blocks expand, starting diagonally</label>
+                    </diagexp>
+					<revdiagfade translate="label">
+                        <value>rev.diag.fade</value>
+                        <label>Blocks fade in, reverse diagonally</label>
+                    </revdiagfade>
+					<revdiagexp translate="label">
+                        <value>rev.diag.exp</value>
+                        <label>Blocks expand, reverse diagonally</label>
+                    </revdiagexp>
+					<blockfade translate="label">
+                        <value>block.fade</value>
+                        <label>Blocks fade in at random speed</label>
+                    </blockfade>
+					<blockexp translate="label">
+                        <value>block.exp</value>
+                        <label>Blocks expand at random speed</label>
+                    </blockexp>
+					<blockdrop translate="label">
+                        <value>block.drop</value>
+                        <label>Blocks fall at random speed</label>
+                    </blockdrop>
+					<blocktopzz translate="label">
+                        <value>block.top.zz</value>
+                        <label>Blocks fade in, start from top and zig zag down</label>
+                    </blocktopzz>
+					<blockbottomzz translate="label">
+                        <value>block.bottom.zz</value>
+                        <label>Blocks fade in, start from bottom and zig zag top</label>
+                    </blockbottomzz>
+					<blockleftzz translate="label">
+                        <value>block.left.zz</value>
+                        <label>Blocks fade in, start from left and zig zag right</label>
+                    </blockleftzz>
+					<blockrightzz translate="label">
+                        <value>block.right.zz</value>
+                        <label>Blocks fade in, start from right and zig zag left</label>
+                    </blockrightzz>
+					<spiralin translate="label">
+                        <value>spiral.in</value>
+                        <label>Blocks fade in, spiraling in</label>
+                    </spiralin>
+					<spiralout translate="label">
+                        <value>spiral.out</value>
+                        <label>Blocks fade out, spiraling out</label>
+                    </spiralout>
+					<vertrandomfade translate="label">
+                        <value>vert.random.fade</value>
+                        <label>Vertical stripe fade in at random</label>
+                    </vertrandomfade>
+					<verttl translate="label">
+                        <value>vert.tl</value>
+                        <label>Vertical stripe transition starting top left</label>
+                    </verttl>
+					<verttr translate="label">
+                        <value>vert.tr</value>
+                        <label>Vertical stripe transition starting top right</label>
+                    </verttr>
+					<vertbl translate="label">
+                        <value>vert.bl</value>
+                        <label>Vertical stripe transition starting bottom left</label>
+                    </vertbl>
+					<vertbr translate="label">
+                        <value>vert.br</value>
+                        <label>Vertical stripe transition starting bottom right</label>
+                    </vertbr>
+					<fadeleft translate="label">
+                        <value>fade.left</value>
+                        <label>Vertical stripe transition fade starting from left</label>
+                    </fadeleft>
+					<faderight translate="label">
+                        <value>fade.right</value>
+                        <label>Vertical stripe transition fade starting from right</label>
+                    </faderight>
+					<altleft translate="label">
+                        <value>alt.left</value>
+                        <label>Alternating vertical stripe transition starting from left</label>
+                    </altleft>
+					<altright translate="label">
+                        <value>alt.right</value>
+                        <label>Alternating vertical stripe transition starting from right</label>
+                    </altright>
+					<blindsleft translate="label">
+                        <value>blinds.left</value>
+                        <label>Vertical blinds transition starting from left</label>
+                    </blindsleft>
+					<blindsright translate="label">
+                        <value>blinds.right</value>
+                        <label>Vertical blinds transition starting from right</label>
+                    </blindsright>
+					<horzrandomfade translate="label">
+                        <value>horz.random.fade</value>
+                        <label>Horizontal stripe fade in at random</label>
+                    </horzrandomfade>
+					<horztl translate="label">
+                        <value>horz.tl</value>
+                        <label>Horizontal stripe transition starting top left</label>
+                    </horztl>
+					<horztr translate="label">
+                        <value>horz.tr</value>
+                        <label>Horizontal stripe transition starting top right</label>
+                    </horztr>
+					<horzbl translate="label">
+                        <value>horz.bl</value>
+                        <label>Horizontal stripe transition starting bottom left</label>
+                    </horzbl>
+					<horzbr translate="label">
+                        <value>horz.br</value>
+                        <label>Horizontal stripe transition starting bottom right</label>
+                    </horzbr>
+					<fadetop translate="label">
+                        <value>fade.top</value>
+                        <label>Horizontal stripe transition fade starting from top</label>
+                    </fadetop>
+					<fadebottom translate="label">
+                        <value>fade.bottom</value>
+                        <label>Horizontal stripe transition fade starting from bottom</label>
+                    </fadebottom>
+					<alttop translate="label">
+                        <value>alt.top</value>
+                        <label>Alternating horizontal stripe transition starting from top</label>
+                    </alttop>
+					<altbottom translate="label">
+                        <value>alt.bottom</value>
+                        <label>Alternating horizontal stripe transition starting from bottom</label>
+                    </altbottom>
+					<blindstop translate="label">
+                        <value>blinds.top</value>
+                        <label>Horizontal blinds transition starting from top</label>
+                    </blindstop>
+					<blindsbottom translate="label">
+                        <value>blinds.bottom</value>
+                        <label>Horizontal blinds transition starting from bottom</label>
+                    </blindsbottom>
+                </values>
+			</transition>
+			<transitionspeed>
+				<label>Transition speed</label>
+				<description>The transition speed/duration use for image transition.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+				<value>800</value>
+			</transitionspeed>
+			<autocenter>
+				<label>Auto center</label>
+				<description>If images are automatically centered.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+			</autocenter>
+			<cpanelalign>
+				<label>Cpanel Align</label>
+				<description>The alignment of the control panel.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+                    <br translate="label">
+                        <value>BR</value>
+                        <label>Bottom Right</label>
+                    </br>
+					<tl translate="label">
+                        <value>TL</value>
+                        <label>Top Lef</label>
+                    </tl>
+					<tc translate="label">
+                        <value>TC</value>
+                        <label>Top Center</label>
+                    </tc>
+					<tr translate="label">
+                        <value>TR</value>
+                        <label>Top Right</label>
+                    </tr>
+					<bl translate="label">
+                        <value>BL</value>
+                        <label>Bottom Left</label>
+                    </bl>
+					<bc translate="label">
+                        <value>BC</value>
+                        <label>Bottom Center</label>
+                    </bc>
+                </values>
+			</cpanelalign>
+			<cpanelposition>
+				<label>Cpanel position</label>
+				<description>The position of the control panel.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<inside translate="label">
+                        <value>inside</value>
+                        <label>inside</label>
+                    </inside>
+                    <outside translate="label">
+                        <value>outside</value>
+                        <label>outside</label>
+                    </outside>
+                </values>
+			</cpanelposition>
+			<timeralign>
+				<label>Timer align</label>
+				<description>The alignment of the timer bar.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<top translate="label">
+                        <value>top</value>
+                        <label>top</label>
+                    </top>
+                    <bottom translate="label">
+                        <value>bottom</value>
+                        <label>bottom</label>
+                    </bottom>
+                </values>
+			</timeralign>
+			<displaytimer>
+				<label>Display timer</label>
+				<description>To specify if the timer indicator bar is visible.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                    <no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                </values>
+			</displaytimer>
+			<mouseoverpause>
+				<label>Mouseover pause</label>
+				<description>To specify if rotation pauses on mouseover and resumes on mouseout.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+			</mouseoverpause>
+			<cpanelmouseover>
+				<label>Cpanel mouseover</label>
+				<description>To specify if the control panel appears only on mouseover and hides on mouseout.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+			</cpanelmouseover>
+			<textmouseover>
+				<label>Text mouseover</label>
+				<description>To specify if the text box appears only on mouseover and hides on mouseout.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+			</textmouseover>
+			<texteffect>
+				<label>Text effect</label>
+				<description>The effect to display the text box.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<fade translate="label">
+                        <value>fade</value>
+                        <label>fade</label>
+                    </fade>
+                    <none translate="label">
+                        <value>none</value>
+                        <label>none</label>
+                    </none>
+					<down translate="label">
+                        <value>down</value>
+                        <label>down</label>
+                    </down>
+					<right translate="label">
+                        <value>right</value>
+                        <label>right</label>
+                    </right>
+					
+                </values>
+			</texteffect>
+			<textsync>
+				<label>Text sync</label>
+				<description>Specify true for text box to appear only after transition is completed or false for text box to appear immediately.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+					<no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                </values>
+			</textsync>
+			<shuffle>
+				<label>Shuffle</label>
+				<description>To specify if slides are displayed in random order.</description>
+                <visible>1</visible>
+                <required>0</required>
+                <type>select</type>
+				<values>
+					<no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+			</shuffle>
+			<slidehidden>
+				<type>slideshowhidden</type>
+				<visible>1</visible>
+			</slidehidden>
+        </parameters>
+    </slideshowwidget>
+</widgets>
